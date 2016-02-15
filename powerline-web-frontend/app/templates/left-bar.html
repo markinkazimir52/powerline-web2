@@ -1,47 +1,47 @@
-
+        
 
             <div class="profilePic">
 
-                <img
-                ng-if="!homeCtrlParams.leftBar.user && !homeCtrlParams.leftBar.group"
-                ng-src="{{homeCtrlParams.leftBar.currUser.avatar_file_name}}" ng-click="routeChange('Profile','User')" alt="">
+                <img 
+                ng-if="!homeCtrlParams.leftBar.user && !homeCtrlParams.leftBar.group" 
+                ng-src="{{homeCtrlParams.leftBar.currUser.avatar_file_name}}" alt="">
 
-                <img
-                ng-if="homeCtrlParams.leftBar.user"
-                ng-src="{{homeCtrlParams.leftBar.user.avatar_file_name}}" ng-click="routeChange('Profile','Main')" alt="">
+                <img 
+                ng-if="homeCtrlParams.leftBar.user" 
+                ng-src="{{homeCtrlParams.leftBar.user.avatar_file_name}}" alt="">
 
-                <img
-                ng-if="homeCtrlParams.leftBar.group"
-                ng-src="{{homeCtrlParams.leftBar.group.avatar_file_path}}" ng-click="routeChange(homeCtrlParams.leftBar.group,'group-profile')" alt="">
+                <img 
+                ng-if="homeCtrlParams.leftBar.group" 
+                ng-src="{{homeCtrlParams.leftBar.group.avatar_file_path}}" alt="">
 
                 <!--<i class="icon editIcon"></i>-->
 
             </div>
 
             <div class="profileTitle">
-                <span
+                <span 
                 ng-if="!homeCtrlParams.leftBar.user && !homeCtrlParams.leftBar.group"
-                ng-bind="homeCtrlParams.leftBar.currUser.full_name || homeCtrlParams.leftBar.currUser.first_name " ng-click="routeChange('Profile','Use')"></span>
+                ng-bind="homeCtrlParams.leftBar.currUser.full_name || homeCtrlParams.leftBar.currUser.first_name "></span>
 
-                <span
-                ng-if="homeCtrlParams.leftBar.user"
-                ng-bind="homeCtrlParams.leftBar.user.full_name || homeCtrlParams.leftBar.user.first_name" ng-click="routeChange('Profile','Main')"></span>
+                <span 
+                ng-if="homeCtrlParams.leftBar.user" 
+                ng-bind="homeCtrlParams.leftBar.user.full_name || homeCtrlParams.leftBar.user.first_name"></span>
 
-                <span
+                <span 
                 ng-if="homeCtrlParams.leftBar.group"
-                ng-bind="homeCtrlParams.leftBar.group.official_title" ng-click="routeChange(homeCtrlParams.leftBar.group,'group-profile')"></span>
+                ng-bind="homeCtrlParams.leftBar.group.official_title"></span>
 
             </div>
 
             <div class="profileDesc" ng-if="homeCtrlParams.leftBar.group.official_description">
 
-                {{homeCtrlParams.leftBar.group.official_description}}
+                {{homeCtrlParams.leftBar.group.official_description}} 
 
-
+                
 
             </div>
 
-
+            
 
             <div class="aboutProfileDetail">
 
@@ -49,7 +49,7 @@
                     <!--<li ng-if="homeCtrlParams.leftBar.group."><i class="icon greyCalendarIcon"></i>Date Formed: {{homeCtrlParams.leftBar.group.official_description}}</li>-->
 
                     <!--<li ng-if="!homeCtrlParams.leftBar.group && (homeCtrlParams.leftBar.user.birth || homeCtrlParams.leftBar.currUser.birth)"><i class="icon greyCalendarIcon"></i>Date of Birth: {{homeCtrlParams.leftBar.user.birth || homeCtrlParams.leftBar.currUser.birth}}</li>-->
-
+                    
 
                     <li ng-if="homeCtrlParams.leftBar.group.total_members"><i class="icon memberIcon"></i>Members: {{homeCtrlParams.leftBar.group.total_members}}</li>
 
@@ -57,12 +57,12 @@
 
             </div>
 
-
+            
 
             <div class="userGroup">
 
                 <div class="titleText" >
-                    {{ items.groups.name }}
+                    {{ items.groups.name }} 
                     <a ng-click="navigate(items.groups)" >
                         ({{filteredGroups.length}})
                     </a>
@@ -94,12 +94,12 @@
 
             </div>
 
-
+            
 
             <div class="userGroup">
 
             <div class="titleText" >
-                {{ items.influences.name }}
+                {{ items.influences.name }} 
                 <a ng-click="navigate(items.influences)" >
                     ({{homeCtrlParams.filter.myInfluences.length}})
                 </a>
@@ -127,18 +127,18 @@
 
                     </div>
 
-
+                    
 
                 </div>
 
             </div>
 
-
+            
 
             <div class="userGroup" ng-if="homeCtrlParams.filter.myRepresentatives.length">
 
                 <div class="titleText" >
-                    {{ items.representatives.name }}
+                    {{ items.representatives.name }} 
                     <a ng-click="navigate(items.representatives)" >
                         ({{homeCtrlParams.filter.myRepresentatives.length}})
                     </a>
@@ -160,7 +160,7 @@
 
                     </div>
 
-
+                    
 
                 </div>
 

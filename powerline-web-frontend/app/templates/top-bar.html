@@ -18,7 +18,7 @@
 
 	</div>
 
-
+	
 
 	<!--<div class="headerSearchInput left">
 
@@ -39,7 +39,7 @@
         </form>
     </div>
 
-
+	
 
 	<div class="navbarHeader left">
 
@@ -81,13 +81,13 @@
 
 		<div class="dropdown ">
 
-
+			
 
 			<a class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
 				<span class="myProfileDropdownImg">
 					<img ng-src="{{homeCtrlParams.leftBar.currUser.avatar_file_name || images/userProfileImg.png}}" alt="">
-				</span>
-				{{homeCtrlParams.leftBar.currUser.full_name || homeCtrlParams.leftBar.currUser.first_name}}
+				</span> 
+				{{homeCtrlParams.leftBar.currUser.full_name || homeCtrlParams.leftBar.currUser.first_name}} 
 				<i class="caret"></i>
 			</a>
 
@@ -141,7 +141,7 @@
 
 <div class="container">
 	<div class="col-md-6 col-md-offset-3" ng-show="data.title">
-		<h1 class="header-title header-top-margin" ng-bind="data.title" ng-click="routeChange('app','redirect')"></h1>
+		<h1 class="header-title header-top-margin" ng-bind="data.title"></h1>
 		<div class="right header-top-margin">
 		    <a href="javascript:;"class="btn btn-primary" ng-class="data.right.btnClass" ng-show="data.right" ng-click="data.right.click()">
 		        {{ data.right.title }}
@@ -149,5 +149,5 @@
 		    </a>
 		</div>
 	</div>
-
+	
 </div>
