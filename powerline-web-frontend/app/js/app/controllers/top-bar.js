@@ -1,5 +1,5 @@
 angular.module('app.controllers').controller('topBar',function ($scope, mainMenu,topBar, $location, $rootScope, $window,$cacheFactory,homeCtrlParams) {
-  
+
   $scope.data = topBar.getData();
 
   $scope.$watch(topBar.getData, function (newValue) {
@@ -8,11 +8,24 @@ angular.module('app.controllers').controller('topBar',function ($scope, mainMenu
 
   $scope.homeCtrlParams = homeCtrlParams;
 
-  
+  /**
+* To re-direct user route on click of title
+*
+* @method routeChange
+* @param {String} view route name
+* @param {String} param discription of the route
+*/
+  $scope.routeChange=function(view,param){
+    if(param =='redirect'){
+      window.location.href = view;
+    }
+  }
+
+
   $scope.back = function () {
     $window.history.back();
   };
-  
+
   $scope.items = [];
   $scope.$watch(function () {
     return mainMenu.items;
@@ -42,13 +55,36 @@ angular.module('app.controllers').controller('topBar',function ($scope, mainMenu
       $scope.$broadcast('scroll-content-changed');
     }
   });
-}).controller('mainMenu',function ($scope, mainMenu, $location, $rootScope, $cacheFactory, homeCtrlParams) {
+}).controller('mainMenu',function ($scope, mainMenu,$route,$location, $rootScope, $cacheFactory, homeCtrlParams) {
   $scope.items = [];
   $scope.$watch(function () {
     return mainMenu.items;
   }, function (items) {
     $scope.items = items;
   });
+
+  /**
+* To re-direct user route for profile and groups
+*
+* @method routeChange
+* @param {String} view route name
+* @param {String} param discription of the route
+*/
+  $scope.routeChange=function(view,param){
+    if(param=='group-profile'){
+      //console.log($location.path());
+      $location.path('/group/'+view.id);
+    //  window.location.reload();
+          $route.reload();
+    }
+    else{
+      if($location.path() == ('/profile')){
+        $route.reload();
+      }else{
+        $location.path('/profile')
+      }
+    }
+  }
 
   $scope.navigate = function (item) {
     item.navigate();
@@ -79,7 +115,7 @@ angular.module('app.controllers').controller('topBar',function ($scope, mainMenu
   });
 
   $scope.homeCtrlParams = homeCtrlParams;
-  
+
 }).controller('notifications', function ($scope, socialActivityTabManager, $location, groupsInvites, invites, announcements, $route, homeCtrlParams) {
 
   $scope.homeCtrlParams = homeCtrlParams;
@@ -120,7 +156,7 @@ angular.module('app.controllers').controller('topBar',function ($scope, mainMenu
   };
 
   function getMessagesCount() {
-    
+
     return groupsInvites.get().length + announcements.getNumberOfNew() + invites.get().size();
   }
 }).controller('rightBar', function ($scope, homeCtrlParams) {

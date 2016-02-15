@@ -29,9 +29,9 @@ angular.module('app', [
       templateUrl: 'templates/home/preload.html',
       controller: 'preload'
     })
-	.when( '/landing', { 
+	.when( '/landing', {
 		templateUrl: 'templates/landing-page/main.html'
-	
+
 	})
     .when('/main', {
       templateUrl: 'templates/home/home.html',
@@ -255,7 +255,7 @@ angular.module('app', [
   }
 
   $rootScope.$on( "$routeChangeSuccess", function(event, next, current) {
-    
+
     if(session.token){
 
       if(next.loadedTemplateUrl == 'templates/session/login.html'){
@@ -294,7 +294,7 @@ angular.module('app', [
      var firstScriptElement = document.getElementsByTagName('script')[0];
 
      // Create a new script element and set its id
-     var facebookJS = document.createElement('script'); 
+     var facebookJS = document.createElement('script');
      facebookJS.id = 'facebook-jssdk';
 
      // Set the new script's source to the source of the Facebook JS SDK
