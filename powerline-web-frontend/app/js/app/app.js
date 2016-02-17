@@ -9,6 +9,7 @@ angular.module('app', [
   'ngBootbox',
   'ngImgCrop',
   'zeroclipboard',
+  'ngLetterAvatar',
   'ngSanitize',
   'ngAnimate',
   'JsCollection',

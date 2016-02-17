@@ -85,7 +85,13 @@
 
 			<a class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
 				<span class="myProfileDropdownImg">
-					<img ng-src="{{homeCtrlParams.leftBar.currUser.avatar_file_name || images/userProfileImg.png}}" alt="">
+					<span ng-if="homeCtrlParams.leftBar.currUser.avatar_file_name == 'https://api-staging.powerli.ne/bundles/civixfront/img/default_user.png'">
+					<ng-letter-avatar data="{{homeCtrlParams.leftBar.currUser.full_name}}" avatarborder="true"></ng-letter-avatar>
+					</span>
+					<img
+					ng-if="homeCtrlParams.leftBar.currUser.avatar_file_name != 'https://api-staging.powerli.ne/bundles/civixfront/img/default_user.png'"
+					ng-src="{{homeCtrlParams.leftBar.currUser.avatar_file_name || images/userProfileImg.png}}" alt="">
+				 </span>
 				</span>
 				{{homeCtrlParams.leftBar.currUser.full_name || homeCtrlParams.leftBar.currUser.first_name}}
 				<i class="caret"></i>
