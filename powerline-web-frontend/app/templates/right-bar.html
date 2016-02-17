@@ -1,4 +1,4 @@
-       
+
 
             <div class="sidepanelContainer">
 
@@ -58,7 +58,12 @@
 
                                 <!--<img height="48" width="48" src="images/groupImg1.png" alt="">-->
                                 <a href="javascript:;" ng-click="navigateTo('group-profile', item)">
-                                    <img height="48" width="48" ng-src="{{ item.avatar_file_path }}">
+                                  <span ng-if="item.avatar_file_path  == 'https://api-staging.powerli.ne/bundles/civixfront/img/default_group.png'">
+                                  <ng-letter-avatar data="{{item.official_title }}" avatarborder="true"></ng-letter-avatar>
+                                  </span>
+                                  <img height="48" width="48"
+                                  ng-if="item.avatar_file_path  != 'https://api-staging.powerli.ne/bundles/civixfront/img/default_group.png'"
+                                  ng-src="{{ item.avatar_file_path }}">
                                 </a>
 
                             </div>
@@ -124,7 +129,7 @@
 
             </div>
 
-            
+
 
             <footer>
 
@@ -138,7 +143,7 @@
                       Privacy
                   </a>-->
                   <a class="btn btn-link" href="//powerli.ne/privacy" target="blank">Privacy</a>
-                  
+
                   &#8226;
                   <!--<a class="btn btn-link"
                     ng-bootbox-title="Terms"

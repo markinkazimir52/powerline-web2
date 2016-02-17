@@ -3,7 +3,7 @@
 <head>
     <title>Powerline</title>
     <!--<base href="/">-->
-    
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -76,9 +76,8 @@
 </head>
 <body ng-class="bodyClass">
 <div id="container" ng-class="containerClass">
-
     <header class="top-bar" id="header" ng-controller="topBar"  ng-include="'templates/top-bar.html'"></header>
-    
+
     <section class="container container-fluid mainContainer">
         <div class="row">
             <div class="col-md-3 containerLeftSection" ng-controller="mainMenu"  ng-include="'templates/left-bar.html'" ></div>
@@ -88,6 +87,7 @@
     </section>
 
     <!-- build:js js/app-min.js -->
+    <script src="js/app/ngletteravatar.min.js"></script>
     <script src="js/app/app.js"></script>
     <script src="js/app/config.js"></script>
     <script src="js/app/controllers.js"></script>

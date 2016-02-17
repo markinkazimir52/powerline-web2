@@ -1,6 +1,12 @@
 <section class="q-header margin-10">
     <div class="avatar" ng-click="navigateTo('owner-profile', q.user)">
-        <img ng-src="{{ q.user.avatar_file_path }}"/>
+      <span ng-if="q.user.avatar_file_path == 'https://api-staging.powerli.ne/bundles/civixfront/img/default_user.png'">
+      <ng-letter-avatar data="{{q.user.full_name}}" avatarborder="true"></ng-letter-avatar>
+      </span>
+      <img
+      ng-if="q.user.avatar_file_path != 'https://api-staging.powerli.ne/bundles/civixfront/img/default_user.png'"
+      ng-src="{{q.user.avatar_file_path}}" alt="">
+     </span>
     </div>
     <div class="q-info two-sections">
         <div>
