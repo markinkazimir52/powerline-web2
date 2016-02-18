@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" />
 
     <script src="js/vendor/jquery/jquery.min.js"></script>
-    <script src="js/vendor/angular/angular.min.js"></script>
+    <script src="js/vendor/angular/angular.min.js"></script>    
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
     <script src="js/vendor/angular-route/angular-route.min.js"></script>
     <script src="js/vendor/angular-touch/angular-touch.min.js"></script>
     <script src="js/vendor/angular-resource/angular-resource.min.js"></script>
@@ -81,7 +82,7 @@
     <section class="container container-fluid mainContainer">
         <div class="row">
             <div class="col-md-3 containerLeftSection" ng-controller="mainMenu"  ng-include="'templates/left-bar.html'" ></div>
-            <div class="col-md-6 content" ng-view ></div>
+            <div class="col-md-6 content" ui-view></div>
             <div class="col-md-3 containerRightSection" ng-controller="rightBar" ng-include="'templates/right-bar.html'"></div>
         </div>
     </section>
