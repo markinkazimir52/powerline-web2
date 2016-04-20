@@ -863,3 +863,514 @@ label.crowdfunding input, label.custom input{
     border-style: solid;
     border-color: #00b3ea transparent;
 }
+
+/* ===========================================================================
+    Title: Group Management
+    Author: Marcin
+    Date: 2016.3.2
+  ===========================================================================*/
+.manage-group{
+    padding: 0 8px;
+}  
+.manage-group .groups-2{
+    background: #f6f9fb;    
+    padding: 0;
+    border: 1px solid #e7eaec;
+}
+.manage-group .groups-2 .group-2.opened{
+    background: #fff;
+}
+.manage-group .groups-2 .group-2 h3{
+    height: 50px;
+    margin: 0 8px;
+    border-bottom: none;
+}
+.manage-group .groups-2 .group-2.opened h3{
+    border-bottom: 1px solid #E7EAEC;
+}
+.manage-group .groups-2 .group-2 h3 i.icon-group{
+    top: 0;
+    left: 4px;
+    height: 50px;
+}  
+.icon-subscription{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 0;
+}
+.icon-membership{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -50px;
+}
+.icon-payment{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -100px;   
+}
+.icon-permission{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -150px;   
+}
+.icon-micropetition{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -200px;   
+}
+.icon-manageGroup{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -250px;   
+}
+.icon-invites{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -300px;   
+}
+.icon-section{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -350px;   
+}
+.icon-profileSetup{
+    background: url('../images/icons/group-manage-icon.png') no-repeat 0 -400px;
+}
+.subscription-level{
+    width: 100%;
+    display: inline-block;
+    color: #708186;
+}
+.subscription-header{
+    width: 50%;
+    display: block;
+    margin: 30px auto;
+}
+.subscription-header span{
+    width: 100%;
+    clear: both;
+    display: inline-block;
+    text-align: center;
+}
+.subscription-header span.date{
+    font-size: 12px;
+}
+.subscription-header span.cancel{
+    color: #b30b2b;
+    font-size: 14px;
+}
+.subscriptions{
+    width: 95%;
+    margin: 0 auto;
+    display: block;
+}
+.subscription{
+    width: 20%;
+    float: left;
+    padding: 0 3px;
+}
+.subscription .membership{
+    background: url("../images/price.png") no-repeat scroll 0% 0% / 100% auto transparent;
+    width: 80%;
+    padding-top: 80%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+.subscription .membership span.type{
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+.subscription .membership span.price{
+    color: #fff;
+    clear: both;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+.subscription .info{
+    background: #f2f9ff;
+    border: 1px solid #eef3f5;
+    position: relative;
+    padding: 35px 3px;
+    top: -30px;
+    z-index: 1;
+}
+.subscription .info span{
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.subscription .info span.title{
+    color: #000066;
+    font-weight: bold;
+    font-size: 13px;
+}
+.subscription .select-btn{
+    background: #54c5ff;
+    border: none;
+    color: #fff;
+    margin: 0 auto;
+    display: table;
+    position: relative;
+    z-index: 10;
+    top: -45px;
+}
+.membership-control{
+    width: 200px;
+    position: relative;
+    margin: 20px 50px;
+}
+.manage-group select{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #eae5e5;
+    color: #636363;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    font-size: 14px;
+}
+.selectBox::after{
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0px;
+    border-style: solid;
+    border-color: #00b3ea transparent;   
+}
+.payment-setup{
+    width: 90%;
+    display: inline-block;
+    margin: 30px 5%;
+}
+.payment-option{
+    width: 50%;
+    padding: 0 10px;
+    float: left;
+}
+.payment-option span{
+    font-size: 14px;
+    color: #636363;
+}
+.payment-option .input-field i{
+    color: #636363;
+    float: left;
+    width: 15px;
+}
+.payment-option .input-field input{
+    float: left;
+    background: transparent;
+    border: none;
+    width: calc(100% - 15px);
+    line-height: 18px;
+    font-size: 14px;
+}
+.payment-option .input-field{
+    width: 100%;
+    height: 40px;
+    background: #f2f1f1;
+    border: 1px solid #eae5e5;
+    padding: 10px;
+    margin: 5px 0;
+    position: relative;
+}
+.payment-option .edit{
+    font-size: 12px;
+    color: #54c5ff;
+    font-weight: bold;
+}
+.payment-option .edit i{
+    margin-right: 5px;
+}
+.payment-option .input-field .remove{
+    font-size: 12px;
+    float: right;
+    color: #d1241a;
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    font-weight: bold;
+}
+.group-permissions{
+    width: 90%;
+    margin: 20px 5%;
+    display: inline-block;
+}
+.group-permissions p.permission{
+    width: 200px;
+    float: left;
+    margin-bottom: 10px;
+}
+.group-permissions p.permission:nth-child(odd){
+    clear: both;
+}
+.group-permissions p.permission input[type="checkbox"] {
+    display: none;
+}
+.group-permissions label{
+    font-size: 14px;
+    color: #636363;
+    font-weight: normal;
+}
+.group-permissions input[type="checkbox"] + label:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #636363;
+    display: inline-block;
+    margin-right: 5px;
+    color: #636363;
+    vertical-align: middle;
+}
+.group-permissions input[type="checkbox"]:checked + label:before {
+    content: "✔";
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #636363;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 14px;
+    text-align: center;
+    color: #636363;
+}
+.post-settings{
+    width: 90%;
+    margin: 20px 5%;
+    display: inline-block;    
+}
+.post-settings span{
+    font-size: 14px;
+    color: #636363;
+    float: left; 
+    line-height: 40px;
+    width: 250px;
+    clear: both;
+    margin-bottom: 10px;   
+}
+.post-settings .selectBox{
+    width: 60px;
+    float: left;
+    position: relative;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.invites{
+    width: 90%;
+    margin: 20px 5%;
+    position: relative;
+}
+.invites input{
+    border: 1px solid #eae5e5;
+    width: 100%;
+    display: inline-block;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+}
+.invites .btn.send-btn{
+    position: absolute;
+    right: 10px;
+    color: #fff;
+    background: #54c5ff;
+    top: 5px;
+    border: none;
+    width: 70px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.group-users{
+    width: 90%;
+    margin: 20px 5%;
+    display: inline-block;
+    font-size: 13px;
+    color: #636363;
+}
+.group-users-header{
+    width: 100%;
+    height: 40px;
+}
+.group-users-header span{
+    line-height: 40px;
+    text-align: center;
+}
+.group-users-header span.approve{
+    color: #1cbc37;
+}
+.group-users-header span.reject{
+    color: #bd352d;
+}
+.group-users ul li{
+    height: 50px;
+    clear: both;
+}
+.group-users ul li div{
+    height: 50px;
+    display: table;
+    float: left;
+    table-layout: fixed;
+}
+.group-users ul li:nth-child(odd){
+    background: #f3f3f3;
+}
+.group-users ul li span, .group-users ul li a{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    color: #636363;
+}
+.group-users .id{
+    width: 5%;
+    float: left;
+}
+.group-users .name{
+    width: 10%;
+    float: left;
+}
+.group-users .email{
+    width: 40%;
+    float: left;
+}
+.group-users span.approve, .group-users .approve-btn{
+    width: 35%;
+    float: left;
+}
+.group-users span.reject, .group-users .remove-btn{
+    width: 10%;
+    float: left;
+}
+.group-users{
+    width: 90%;
+    margin: 20px 5%;
+    display: inline-block;
+    font-size: 13px;
+    color: #636363;
+}
+.sub-groups{
+    width: 90%;
+    margin: 20px 5%;
+    display: inline-block;
+    font-size: 13px;
+    color: #636363;   
+}
+.new-group-section{
+    font-size: 13px;
+    color: #54c5ff;
+}
+.new-group-section i{
+    margin-right: 5px;
+}
+.sub-group{
+    margin: 20px 0;
+    display: inline-block;
+    width: 100%;
+}
+.sub-group h5{
+    color: #636363;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.sub-group ul li{
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    color: #708186;
+}
+.sub-group ul li:nth-child(odd){
+    background: #f3f3f3;
+}
+.sub-group ul li div{
+    height: 40px;
+    float: left;
+    display: table;
+}
+.sub-group ul li div span{
+    display: table-cell;
+    vertical-align: middle;
+}
+.sub-group ul li .name{
+    width: 30%;
+    float: left;
+    padding-left: 10px;
+}
+.sub-group ul li .email{
+    width: 70%;
+    float: left;
+}
+.profile-setup{
+    width: 90%;
+    margin: 10px 5%;
+    display: inline-block;
+    font-size: 13px;
+    color: #636363;
+}
+.profile-image{
+    width: 100%;
+}
+.profile-image img{
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.profile-image .image-upload{
+    width: calc(100% - 100px);
+    height: 100px;
+    padding: 15px 20px;
+    float: left;
+}
+.profile-image .image-upload span{
+    font-weight: bold;
+}
+.image-upload{
+    width: 90%;
+    position: relative;
+}
+.image-upload input{
+    border: 1px solid #eae5e5;
+    width: 100%;
+    display: inline-block;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+}
+.image-upload .btn.upload-btn{
+    position: absolute;
+    right: 25px;
+    color: #fff;
+    background: #54c5ff;
+    top: 40px;
+    border: none;
+    width: 70px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.profile-infos{
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+.profile-infos input{
+    background: #f2f1f1;
+    border: 1px solid #eae5e5;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.profile-infos input.half, .profile-infos .selectBox{
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    height: 40px;
+    position: relative;
+}
+.profile-infos input.full{
+    width: 100%;
+}
+.profile-setup .save-btn{
+    border: none;
+    background: #54c5ff;
+    color: #fff;
+    padding: 6px 20px;
+    float: right;
+}
