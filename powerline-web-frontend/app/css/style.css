@@ -1374,3 +1374,551 @@ label.crowdfunding input, label.custom input{
     padding: 6px 20px;
     float: right;
 }
+
+/* ===========================================================================
+    Title: Group Create
+    Author: Marcin
+    Date: 2016.3.4
+  ===========================================================================*/
+
+.group-create-steps{
+    width: 80%;
+    display: table;
+    margin: 50px auto 10px;
+    color: #708186;
+    font-size: 14px;
+}
+.group-create-steps ul{
+    width: 100%;
+    display: inline-block;
+}
+.group-create-steps ul li{
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+.group-create-steps .progress-bar{
+    background: none repeat scroll 0% 0% #FFF;
+    box-shadow: 0px 2px 2px #E9E9E9 inset;
+    width: 66.67%;
+    height: 10px;
+    float: none;
+    margin: 0px auto;
+}
+.group-create-steps .progress-bar img{
+    position: relative;
+    top: -3px;
+}
+.group-creation{
+    display: inline-block;
+    width: 100%;
+    background: #fff;
+    color: #708186;
+}
+.group-creation h1{
+    font-size: 20px;
+    text-align: center;
+    margin: 30px 0 20px;
+}
+.group-creation fieldset{
+    width: 60%;
+    position: relative;
+    display: block;
+    margin: 30px auto 0;
+}
+.group-creation fieldset:last-child{
+    margin-bottom: 30px;
+}
+.group-creation .input-label{
+    color: #000066;
+    font-size: 14px;
+    width: 100%;
+    float: left;
+}
+.group-creation input{
+    background: #f2f1f1;
+    width: 100%;
+    clear: both;
+    border: 1px solid #cecece;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.group-creation .note{
+    margin-bottom: 10px;
+}
+.group-creation .note span{
+    font-size: 13px;
+    margin-left: 5px;
+}
+.group-creation .hide-password{
+    position: absolute;
+    float: right;
+    right: 5px;
+    height: 25px;
+    font-size: 12px;
+    padding: 0 10px;
+    margin-top: 4px;
+    border-radius: 0;
+    color: #636363;
+}
+.group-creation .selectBox{
+    width: 100%;
+    clear: both;
+    margin-bottom: 15px;
+    position: relative;
+}
+.group-creation .selectBox select{
+    background: #f4f9fd;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #cecece;
+    color: #636363;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    font-size: 14px;
+}
+.group-creation .selectBox::after{
+    border-color: #647378 transparent;
+}
+.group-creation .interests ul, .group-creation .sel-interests ul{
+    width: 100%;
+    display: inline-block;
+}
+.group-creation .sel-interests{
+    margin-top: 10px;
+}
+.group-creation .interests ul li{
+    width: auto;
+    float: left;
+    color: #54c5ff;
+    border: 1px solid #54c5ff;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.group-creation .interests ul li:hover{
+    background: #54c5ff;
+    color: #fff;
+}
+.group-creation .sel-interests ul li{
+    width: auto;
+    float: left;
+    color: #fff;
+    background: #54c5ff;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.group-creation .sel-interests ul li i{
+    font-weight: normal;
+    margin-left: 5px;
+    cursor: pointer
+}
+.group-creation h4{
+    color: #000066;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.group-creation span.interests-txt{
+    font-size: 12px;
+    color: #54c5ff;
+    display: inline-block;
+    line-height: 1;
+}
+.group-creation .own_interest {
+    width: calc(100% - 90px);
+    float: left;
+}
+.group-creation .add-interest{
+    width: 80px;
+    float: left;
+    margin-left: 10px;
+    background: #54c5ff;
+    color: #fff;
+    border: none; 
+}
+.skip-buttons .next-btn{
+    background: #28b74d;
+    color: #fff;
+    border: none;
+    float: right;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.skip-buttons .next-btn i{
+    margin-left: 5px;
+}
+.skip-buttons .prev-btn{
+    background: #acb3b8;
+    color: #fff;
+    border: none;
+    float: left;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.skip-buttons .prev-btn i{
+    margin-right: 5px;
+}
+.tier-selection-header{    
+    width: 50%;
+    display: table;
+    margin: 0 auto;
+}
+.tier-selection-header span{
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;    
+}
+.tier-selection-header a.option{
+    background: #f2f9ff;
+    width: 50%;
+    float: left;
+    border: 1px solid #ebebeb;
+    color: #708186;
+    text-align: center;
+    padding: 4px 10px;
+    font-size: 14px;
+    position: relative;
+}
+.tier-selection-header a.option.active{
+    background: #54c5ff;
+    color: #fff;
+    border: 1px solid #54c5ff;
+}
+.tier-selection-header a.option.active::after{
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: 0px;
+    top: 28px;
+    left: calc(50% - 5px);
+    border-width: 10px 10px 0px;
+    border-style: solid;
+    border-color: #54c5ff transparent;
+}
+.group-creation .subscriptions{
+    margin-top: 30px;
+}
+.group-creation .subscription{
+    height: 820px;
+}
+.group-creation .subscription .membership{
+    width: 70%;
+    padding-top: 70%;
+}
+.group-creation .subscription .membership span.type{
+    top: 45px;
+    font-size: 24px;
+}
+.group-creation .subscription .membership span.price{
+    top: 70px;
+    font-size: 16px;
+}
+.group-creation .subscription .info{
+    top: -60px;
+    padding: 60px 0px 20px;
+    height: 690px;
+}
+.group-creation .subscription .info span.title{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.group-creation .subscription .info img{
+    margin: 10px auto;
+    display: block;
+}
+.group-creation .subscription .info fieldset{
+    width: 100%;
+    padding: 5%;
+    margin-top: 0;
+    border-bottom: 1px solid #e1e9f0;
+}
+.group-creation .subscription .info fieldset:last-of-type{
+    border-bottom: none;
+}
+.group-creation .subscription .info fieldset span{
+    margin-bottom: 10px;
+}
+.group-creation .subscription .info fieldset span.value{
+    line-height: 1;
+    display: block;
+    margin: 0;
+}
+.group-creation .subscription .info fieldset h4{
+    font-size: 12px;
+    font-weight: bold;
+    color: #708186;
+}
+.group-creation .subscription .info fieldset ul li{
+    font-size: 12px;
+    padding: 2px 0;
+}
+.group-creation .subscription .info fieldset ul li:before{
+    content: '✔';
+    color: #28b74d;
+    margin-right: 5px;
+}
+.group-creation .subscription .info .more-btn{
+    color: #708186;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 20px;
+}
+.group-creation .subscription .info .more-btn i{
+    margin-left: 5px;
+}
+.group-creation .subscription .select-btn{
+    top: -75px;
+    font-weight: bold;
+    padding: 8px 15px;
+    font-size: 13px;
+}
+.group-creation .subscription.active .info{
+    background: #fffff2;
+    border: 1px solid #e7e7d1;
+}
+.group-creation .subscription.active .select-btn{
+    background: #f0912a;
+}
+.group-creation.creation2{
+    padding-bottom: 30px;
+}
+.group-creation.creation2 p.note{
+    width: 95%;
+    margin: 0 auto;
+    display: block;
+    font-size: 12px;
+    margin: 0 auto;
+}
+.group-creation .payment-steps{
+    width: 70%;
+    display: inline-block;
+    float: left;
+    padding: 0 20px;
+}
+.group-creation .step-infos{
+    width: calc(30% - 20px);
+    display: inline-block;
+    float: left;
+    border: 1px solid #dbe6ea;
+    min-height: 300px;
+    margin-top: 40px;
+}
+.payment-steps .tab-content{
+    border: 1px solid #dbe6ea;
+    border-top: none;
+    min-height: 300px;
+}
+.payment-steps .tab-content fieldset{
+    margin-top: 0;
+    width: 100%;
+    padding: 20px 30px;
+}
+.payment-steps .nav-tabs > li > a{
+    border-radius: 0;
+    font-size: 13px;
+    padding: 10px 25px;
+    background: #c3cdd4;
+    color: #fff;
+}
+.payment-steps .nav-tabs > li > a i{
+    color: #b2bfc8;
+    margin-right: 5px;
+}
+.payment-steps .nav-tabs > li.active > a, 
+.payment-steps .nav-tabs > li.active > a:hover, 
+.payment-steps .nav-tabs > li.active > a:focus{
+    background: #fff;
+    color: #708186;
+}
+.payment-steps .nav-tabs > li.active > a i, 
+.payment-steps .nav-tabs > li.active > a:hover i,
+.payment-steps .nav-tabs > li.active > a:focus i{
+    background: #fff;
+    color: #708186;
+}
+.payment-steps .payment-field{
+    width: 50%;
+    float: left;
+    padding: 0 15px;
+}
+.payment-steps .payment-field.sub-field{
+    width: 33.33333%;
+    float: left;
+}
+.group-creation .payment-steps .selectBox select{
+    height: 32px;
+    padding: 5px 10px;
+}
+.group-creation.creation3 fieldset:last-child{
+    margin-bottom: 0;
+}
+.group-creation .payment-steps .next-btn{
+    background: #28b74d;
+    border: none;
+    color: #fff;
+    float: right;
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 7px 20px;
+    font-weight: bold;
+}
+.group-creation .payment-steps .next-btn i{
+    margin-left: 10px;
+}
+.group-creation .payment-steps .prev-btn{
+    background: #acb3b8;
+    color: #fff;   
+    margin-top: 10px;
+    float: left;
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 7px 20px;
+    font-weight: bold;
+}
+.group-creation .payment-steps .prev-btn i{
+    margin-right: 10px;
+}
+.step-infos .bill-info h4{
+    background: #f0f3f5;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #708186;
+}
+.step-infos .bill-info .info-content{
+    font-size: 12px;
+    padding: 20px;    
+}
+.step-infos .bill-info .info-content img{
+    width: 35px;
+    float: left;
+}
+.step-infos .bill-info .info-content .checkout{
+    width: calc(100% - 35px);
+    float: left;
+    padding-left: 10px;
+}
+.step-infos .bill-info .info-content .checkout .change-btn{
+    margin-left: 5px;
+    color: #54c5ff;
+    text-decoration: underline;
+}
+.payment-steps .payment-detail{
+    padding: 20px 30px;
+}
+.payment-steps .payment-detail fieldset{
+    border-bottom: 1px solid #dbe6ea;
+    padding: 10px 0;
+}
+.payment-steps .payment-detail fieldset .payment-type{
+    width: 100%;
+    float: left;
+    margin: 10px 0;
+    color: #708186;
+}
+.payment-steps .payment-detail fieldset .payment-type img{
+    margin-right: 5px;
+}
+.payment-steps .payment-detail fieldset .payment-field input{
+    background: url(../images/icons/lock.png) no-repeat left 10px center;
+    background-color: #F2F1F1;
+    padding-left: 30px;
+}
+.payment-steps .payment-field.col-md-8{
+    width: 66.6667%;
+}
+.payment-steps .payment-field.col-md-4{
+    width: 33.3333%;
+}
+.group-creation .selectBox.col-md-4{
+    width: 33.3333%;
+    clear: none;
+    float: left;
+    padding: 0;
+    margin-right: 10px;
+}
+.payment-steps .bank-scanner{
+    margin: 0 auto 20px;
+    display: table;
+    position: relative;
+    top: 10px;
+}
+.payment-steps .payment-detail fieldset:last-child{
+    border-bottom: none;
+}
+.bill-info .info-content .checkout span{
+    clear: both;
+    float: left;
+}
+.step-infos .bill-info .info-content .checkout-progress,
+.payment-steps .review-confirm .info-content .checkout-progress{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.payment-steps .review-confirm .info-content{
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+}
+.review-confirm .info-content img{
+    float: left;
+}
+.review-confirm .info-content .checkout{
+    width: calc(100% - 35px);
+    float: left;
+    padding-left: 10px;
+}
+.review-confirm .info-content .checkout .change-btn{
+    margin-left: 5px;
+    color: #54c5ff;
+    text-decoration: underline;
+}
+.review-confirm .info-content .checkout span{
+    clear: both;
+    float: left;
+}
+.pay-info{
+    padding: 20px;
+    color: #708186;
+    position: relative;
+    height: 300px;
+}
+.pay-info h4{
+    font-size: 16px;
+    font-weight: bold;
+    color: #708186;
+}
+.pay-info p{
+    margin: 20px 0;
+    font-size: 14px;
+}
+.pay-info img{
+    display: table;
+    margin: 0 auto;
+}
+.pay-info .links{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.pay-info .links a{
+    font-size: 12px;
+    color: #c0c6c8;
+}

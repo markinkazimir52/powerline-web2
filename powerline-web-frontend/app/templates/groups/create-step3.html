@@ -1,0 +1,197 @@
+<div class="group-create-steps">
+    <ul>
+        <li class="active">Registration</li>
+        <li>Tier Selection</li>
+        <li>Payment</li>
+    </ul>
+    <div class="progress-bar">
+        <img class="left" src="images/icons/progress-empty.png">
+        <img class="center" src="images/icons/progress-empty.png">
+        <img class="right" src="images/icons/progress-fill.png">
+    </div>
+</div>
+
+<section class="group-creation creation3 padding-10">
+    <h1>Payment</h1>
+    <div class="payment-steps">
+        <tabset>
+            <tab heading="Billing Information" select="tabSelect('tab1')">
+                <fieldset>
+                    <div class="payment-field">
+                        <span class="input-label">First Name</span>
+                        <input type="text" ng-model="data.firstName" name="firstName" />                        
+                    </div>
+                    <div class="payment-field">
+                        <span class="input-label">Last Name</span>
+                        <input type="text" ng-model="data.lastName" name="lastName" />                        
+                    </div>
+                    <div class="payment-field">
+                        <span class="input-label">Phone Number</span>
+                        <input type="text" ng-model="data.phone" name="phone" />
+                    </div>
+                    <div class="payment-field">
+                        <span class="input-label">Email</span>
+                        <input type="email" ng-model="data.email" name="email"/>                        
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="payment-field">
+                        <span class="input-label">Street Address</span>
+                        <input type="text" ng-model="data.address" name="address" />
+                    </div>
+                    <div class="payment-field">
+                        <span class="input-label">Apt/Suite/Office</span>
+                        <input type="text" ng-model="data.office" name="office" />
+                    </div>
+                    <div class="payment-field sub-field">
+                        <span class="input-label">Zip Code</span>
+                        <input type="text" ng-model="data.zipcode" name="zipcode" />    
+                    </div>
+                    <div class="payment-field sub-field">
+                        <span class="input-label">City</span>
+                        <input type="text" ng-model="data.city" name="city" />                        
+                    </div>
+                    <div class="payment-field sub-field">
+                        <span class="input-label">Country</span>
+                        <div class="selectBox">
+                            <select>
+                                <option>Select Country</option>
+                            </select>    
+                        </div>
+                    </div>
+                </fieldset>
+            </tab>
+            <tab select="tabSelect('tab2')">
+                <tab-heading>
+                    <i class="fa fa-lock"></i>Payment Details
+                </tab-heading>
+                <div class="payment-detail">
+                    <fieldset>
+                        <a class="payment-type"><img src="images/icons/progress-fill.png">Pay via Credit Card</a>
+                        <div class="payment-field col-md-8">
+                            <span class="input-label">Debit/Credit Card Number</span>
+                            <input type="text" ng-model="data.credit" name="credit" />
+                        </div>
+                        <div class="payment-field col-md-4">
+                            <span class="input-label">Security Code</span>
+                            <input type="text" ng-model="data.security" name="security" />
+                        </div>
+                        <div class="payment-field">
+                            <span class="input-label">Expiration Date</span>
+                            <div class="selectBox col-md-4">
+                                <select>
+                                    <option>Month</option>
+                                </select>    
+                            </div>
+                            <div class="selectBox col-md-4">
+                                <select>
+                                    <option>Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <img class="payment-logo" src="images/payment-logo.png">
+                    </fieldset>
+                    <fieldset>
+                        <a class="payment-type"><img src="images/icons/progress-empty.png">Pay via Bank Transfer</a>
+                        <div class="payment-field col-md-8">
+                            <span class="input-label">Account Holder's Name</span>
+                            <input type="text" ng-model="data.holderName" />
+                        </div>
+                        <div class="payment-field col-md-4">
+                            <span class="input-label">Account Type</span>
+                            <div class="selectBox">
+                                <select>
+                                    <option>Savings</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="payment-field">
+                            <span class="input-label">Routing Number</span>
+                            <input type="text" ng-model="data.routNum" />
+                        </div>
+                        <div class="payment-field">
+                            <span class="input-label">Account Number</span>
+                            <input type="text" ng-model="data.accountNum" />
+                        </div>
+                        <div class="payment-field">
+                            <span class="input-label">Confirm Routing Number</span>
+                            <input type="text" ng-model="data.confirmRoutNum" />
+                        </div>
+                        <div class="payment-field">
+                            <span class="input-label">Confirm Account Number</span>
+                            <input type="text" ng-model="data.confirmAccNum" />
+                        </div>
+                        <img class="bank-scanner" src="images/bank-scanner.png">
+                    </fieldset>
+                </div>                
+            </tab>
+            <tab heading="Review and Confirm" select="tabSelect('tab3')">
+                <fieldset class="review-confirm">
+                    <div class="info-content">
+                        <div class="checkout-progress">
+                            <img src="images/icons/people.png">
+                            <div class="checkout">
+                                <span>Selected Powerline Package</span><a class="change-btn">Change</a>
+                                <span><b>SILVER PACKAGE ($9/month)</b></span>
+                            </div>
+                        </div>
+                        <div class="checkout-progress">
+                            <img src="images/icons/home.png">
+                            <div class="checkout">
+                                <span>Billing Information:</span><a class="change-btn">Edit</a>
+                                <span><b>John Doe</b></span>
+                                <span><b>1800.888.22.01</b></span>
+                                <span><b>Johndoe@gmail.com</b></span>
+                                <span><b>99 Your Street, Your Ave. 1800, USA</b></span>
+                            </div>                    
+                        </div>
+                        <div class="checkout-progress">
+                            <img src="images/icons/payment.png">
+                            <div class="checkout">
+                                <span>Payment</span><a class="change-btn">Edit</a>
+                                <span><b>VISA</b></span>
+                                <span><b>x-4480</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>                
+            </tab>
+        </tabset>
+        <button class="btn btn-default next-btn" ng-if="selTab == 'tab1'">Next - Payment Details<i class="fa fa-caret-right"></i></button>
+        <button class="btn btn-default next-btn" ng-if="selTab == 'tab2'">Next - Review and Confirm<i class="fa fa-caret-right"></i></button>
+        <button class="btn btn-default next-btn checkout-btn" ng-if="selTab == 'tab3'">Secured Checkout<i class="fa fa-caret-right"></i></button>
+    </div>    
+    <div class="step-infos">
+        <div class="bill-info" ng-if="selTab == 'tab1' || selTab == 'tab2'">
+            <h4>Your Checkout Progress</h4>
+            <div class="info-content">
+                <div class="checkout-progress">
+                    <img src="images/icons/people.png">
+                    <div class="checkout">
+                        <span>Selected Powerline Package</span><a class="change-btn">Change</a>
+                        <span><b>SILVER PACKAGE ($9/month)</b></span>
+                    </div>
+                </div>
+                <div class="checkout-progress">
+                    <img src="images/icons/home.png">
+                    <div class="checkout">
+                        <span>Billing Information:</span><a class="change-btn">Edit</a>
+                        <span><b>John Doe</b></span>
+                        <span><b>1800.888.22.01</b></span>
+                        <span><b>Johndoe@gmail.com</b></span>
+                        <span><b>99 Your Street, Your Ave. 1800, USA</b></span>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="pay-info" ng-if="selTab == 'tab3'">
+            <h4>Pay with Confidence</h4>
+            <p>Our payment process is secured and all your information will be always be protected and kept in strictest confidentiality.</p>
+            <img class="payment-secure" src="images/payment-secure.png">
+            <div class="links">
+                <a>Privacy Policy | </a>
+                <a>Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</section>
