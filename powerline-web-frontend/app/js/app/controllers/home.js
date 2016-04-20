@@ -473,7 +473,15 @@ angular.module('app.controllers').directive('iActivity', function($rootScope, $l
 
       $scope.navigateToActivity = function(activity, focus) {
         activity.setRead();
-        $rootScope.navigateTo('activity', activity, focus);       
+        var group_id = activity.get('entity').group_id;
+
+        groups.loadInfo(group_id).then(function(response){
+          var group_type = response.group_type;
+          var official_title = response.official_title;
+          activity.official_title = official_title;
+          
+          $rootScope.navigateTo('activity', activity, focus);
+        });
       };
 
       $scope.toggleComments = function(activity,$event){

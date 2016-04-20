@@ -31,26 +31,85 @@
       //$locationProvider.html5Mode(true);
 
       // defaults to Radar Page
-      $urlRouterProvider.otherwise('/main');
+      $urlRouterProvider.otherwise('/');
       
       // ----------------------------------------------------------------------
       // Application Routes
       // ----------------------------------------------------------------------
       $stateProvider
-          .state('/', {
-              url: '/',
-              templateUrl: 'templates/home/preload.html',
-              controller: 'preload'
-          })
+          // .state('/', {
+          //     url: '/',
+          //     templateUrl: 'templates/home/preload.html',
+          //     controller: 'preload'
+          // })
           .state('landing', {
               url: '/landing',
               templateUrl: 'templates/landing-page/main.html'
           })
           .state('main', {
-              url: '/main',
+              url: '/',
               templateUrl: 'templates/home/home.html',
               controller: 'home'
           })
+          .state('groups', {
+              url: '/groups',
+              templateUrl: 'templates/groups/my-groups.html',
+              controller: 'groups'
+          })
+          .state('groups.search', {
+              url: '/search',
+              templateUrl: 'templates/groups/search.html',
+              controller: 'groups.search'
+          })
+          .state('profile', {
+              url: '/profile',
+              templateUrl: 'templates/profile/profile.html',
+              controller: 'profile'
+          })
+          .state('settings', {
+              url: '/settings',
+              templateUrl: 'templates/profile/settings.html',
+              controller: 'settings'
+          })
+          .state('influences', {
+              url: '/influences',
+              templateUrl: 'templates/influence/influences.html',
+              controller: 'influences'
+          })
+          .state('influences.add', {
+              url: '/add',
+              templateUrl: 'templates/influence/search.html',
+              controller: 'influences.search'
+          })
+          .state('group', {
+              url: '/s/:groupname',
+              templateUrl: 'templates/groups/profile.html',
+              controller: 'groups.profile',
+              params: {groupid: null}
+          })
+          // .state('town', {
+          //   url: '/places/:country/:state/:town',
+          //   templateUrl: 'templates/coming-soon.html'
+          // })
+          // .state('state', {
+          //   url: '/places/:country/:state',
+          //   templateUrl: 'templates/coming-soon.html'
+          // })
+          // .state('country', {
+          //   url: '/places/:country',
+          //   templateUrl: 'templates/coming-soon.html'
+          // })
+          .state('petition', {
+              url: '/places/:paramStr/:id',
+              templateUrl: 'templates/petitions/petition.html',
+              controller: 'petition'
+          })
+          // .state('petition', {
+          //     url: '/petition/:id',
+          //     templateUrl: 'templates/petitions/petition.html',
+          //     controller: 'petition'
+          // })
+
           .state('new-activities', {
               url: '/new-activities',
               templateUrl: 'templates/home/home.html',
@@ -119,30 +178,21 @@
               url: '/forgot-password',
               templateUrl: 'templates/session/forgot-password.html',
               controller: 'session.forgot-password'
-          })
-          .state('town', {
-              url: '/town',
-              templateUrl: 'templates/coming-soon.html'
-          })
-          .state('groups', {
-              url: '/groups',
-              templateUrl: 'templates/groups/my-groups.html',
-              controller: 'groups'
-          })
-          .state('groups-search', {
-              url: '/groups/search',
-              templateUrl: 'templates/groups/search.html',
-              controller: 'groups.search'
-          })
+          })                    
           .state('groups-create', {
               url: '/groups/create',
               templateUrl: 'templates/groups/create.html',
               controller: 'groups.create'
           })
-          .state('group', {
-              url: '/group/:id',
-              templateUrl: 'templates/groups/profile.html',
-              controller: 'groups.profile'
+          .state('groups-create-step2', {
+              url: '/groups/create-step2',
+              templateUrl: 'templates/groups/create-step2.html',
+              controller: 'groups.create-step2'
+          })
+          .state('groups-create-step3', {
+              url: '/groups/create-step3',
+              templateUrl: 'templates/groups/create-step3.html',
+              controller: 'groups.create-step3'
           })
           .state('group-join', {
               url: '/group/:id/join/:publicStatus/:isFieldRequired',
@@ -153,16 +203,6 @@
               url: '/messages',
               templateUrl: 'templates/messages/list.html',
               controller: 'messages'
-          })
-          .state('influences', {
-              url: '/influences',
-              templateUrl: 'templates/influence/influences.html',
-              controller: 'influences'
-          })
-          .state('influences-add', {
-              url: '/influences/add',
-              templateUrl: 'templates/influence/search.html',
-              controller: 'influences.search'
           })
           .state('influences-notifications', {
               url: '/influences/notifications',
@@ -198,12 +238,7 @@
               url: '/group-petitions/:id',
               templateUrl: 'templates/petitions/group.html',
               controller: 'petitions.group'
-          })
-          .state('petition', {
-              url: '/petition/:id',
-              templateUrl: 'templates/petitions/petition.html',
-              controller: 'petition'
-          })
+          })          
           .state('payment-polls-payment-request', {
               url: '/payment-polls/payment-request/:id',
               templateUrl: 'templates/payment-polls/payment-request.html',
@@ -228,11 +263,6 @@
               templateUrl: 'templates/services/index.html',
               controller: 'services'
           })
-          .state('profile', {
-              url: '/profile',
-              templateUrl: 'templates/profile/profile.html',
-              controller: 'profile'
-          })
           .state('profile-2', {
               url: '/profile-2',
               templateUrl: 'templates/profile/profile-2.html',
@@ -242,11 +272,6 @@
               url: '/profile-3',
               templateUrl: 'templates/profile/profile-3.html',
               controller: 'profile-step3'
-          })
-          .state('settings', {
-              url: '/settings',
-              templateUrl: 'templates/profile/settings.html',
-              controller: 'settings'
           })
           .state('influence-profile', {
               url: '/influence/profile/:id',
@@ -299,7 +324,7 @@
               }
 
               if(!homeCtrlParams.leftBar.currUser || !homeCtrlParams.filter.myRepresentatives){
-                 $location.path('/main');
+                 $location.path('/');
                  return;
               }
 
@@ -337,7 +362,7 @@
             })
           ;
           if (!$location.path() || '/' === $location.path()) {
-            $location.path('/main');
+            $location.path('/');
           }
         } else {
           $location.path('/profile');

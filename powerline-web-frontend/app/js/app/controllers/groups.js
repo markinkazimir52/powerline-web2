@@ -61,7 +61,8 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
       btnClass: 'btn-text',
       title: 'Create',
       click: function () {
-        $scope.path('/groups/create');
+        // $scope.path('/groups/create');
+        $state.go('groups.create');
       }
     })
   ;
@@ -128,7 +129,8 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
   ;
   influence.loadFollowers();
 
-  var id = parseInt($routeParams.id, 10);  
+  // var id = parseInt($routeParams.id, 10);
+  var id = parseInt($state.params.groupid, 10);
 
   flurry.log('group profile', {id: id});
 
