@@ -610,3 +610,256 @@ hash-tag{
     content: "copied to clipboard";
     text-transform: lowercase;
 }
+
+/* ===========================================================================
+    Title: Leader Content Creation Module (Tabs)
+    Author: Marcin
+    Date: 2016.2.29
+  ===========================================================================*/
+.home-tabs.tabs ul li{
+    width: 60px;
+    height: 60px;
+    padding: 0;
+}
+.home-tabs.tabs .icon { background: url(../images/icons/tab-icons.png) no-repeat;}
+
+.home-tabs.tabs ul li i.pencilIcon {background-position: 0px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+.home-tabs.tabs ul li i.paperPenIcon {background-position: -50px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+.home-tabs.tabs ul li i.chartIcon {background-position: -100px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+.home-tabs.tabs ul li i.chatIcon {background-position: -150px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+.home-tabs.tabs ul li i.fundIcon {background-position: -200px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+.home-tabs.tabs ul li i.eventIcon {background-position: -250px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+.home-tabs.tabs ul li i.announIcon {background-position: -300px 0; width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin:0 3px 0 0;}
+
+.home-tabs.tabs ul li.active i.pencilIcon, .home-tabs.tabs ul li:hover i.pencilIcon {background-position: 0px -60px;}
+.home-tabs.tabs ul li.active i.paperPenIcon, .home-tabs.tabs ul li:hover i.paperPenIcon {background-position: -50px -60px;}
+.home-tabs.tabs ul li.active i.chartIcon, .home-tabs.tabs ul li:hover i.chartIcon {background-position: -100px -60px;}
+.home-tabs.tabs ul li.active i.chatIcon, .home-tabs.tabs ul li:hover i.chatIcon {background-position: -150px -60px;}
+.home-tabs.tabs ul li.active i.fundIcon, .home-tabs.tabs ul li:hover i.fundIcon {background-position: -200px -60px;}
+.home-tabs.tabs ul li.active i.eventIcon, .home-tabs.tabs ul li:hover i.eventIcon {background-position: -250px -60px;}
+.home-tabs.tabs ul li.active i.announIcon, .home-tabs.tabs ul li:hover i.announIcon {background-position: -300px -60px;}
+
+.tabContainerField{
+    color: #636363;
+}
+
+.tabContainerField h5{
+    text-align: left;
+    margin: 10px 0;
+    color: #636363;
+}
+.tabContainerField h5 span{
+    float: right;
+    color: #8e9ba2;
+    font-size: 12px;
+}
+.tabContainerField input{
+    margin-bottom: 10px;
+}
+.attach-wrap{
+    margin-top: 50px;
+}
+.filter-wrap{
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    font-size: 12px;
+    color: #636363;
+}
+.public-link{
+    color: #636363;
+    font-size: 12px;
+    height: 100%;
+    line-height: 40px;
+}
+.public-link img{
+    margin-right: 5px;
+}
+.public-link:hover, .public-link.active{
+    color: #54c5ff;
+}
+.filter-wrap .drop-down{
+    float: right;
+}
+.filter-wrap .drop-down button.btn{
+    padding: 10px;
+    border-radius: 0;
+}
+.attachments{
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+.attach-title{
+    float: left;
+    width: 100px;
+    color: #636363;
+    font-size: 14px;
+}
+.seperate-line{
+    border-top: 1px solid #efeff4;
+    width: calc(100% - 100px);
+    float: left;
+    margin-top: 10px;
+}
+.attachments ul{
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+}
+.attachments ul li{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.attachments ul li img{
+    float: left;
+}
+.attachments ul li .attach-info{
+    width: calc(100% - 70px);
+    float: left;
+    margin-left: 10px;
+}
+.attach_name{
+    color: #636363;
+    font-size: 14px;
+    float: left;
+    margin-top: 5px;
+}
+.attach-info .change{
+    clear: both;
+    float: left;
+    color: #10106f;
+    font-size: 12px;
+}
+.attach-info .remove{
+    float: left;
+    color: #10106f;
+    font-size: 12px;
+}
+.attachments p{
+    background: #f2f1f1;
+    padding: 10px;
+    width: 100%;
+    color: #636363;
+    font-size: 16px;
+    min-height: 100px;
+    border: 1px solid #eae5e5;
+}
+.add_buttons{
+    float: left;
+    margin-top: 20px;
+}
+.add_buttons .btn{
+    border-right: 1px solid #e7e5f1;
+    color: #636363;
+    font-size: 12px;
+}
+.add_buttons .btn img{
+    margin-right: 5px;
+}
+.add_buttons .btn span{
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+}
+.add_buttons .btn:last-child{
+    border-right:none;
+}
+.postSubmitBtn{
+    margin-top: 10px;
+}
+.answers{
+    width: 100%;
+    display: inline-block;
+    margin-top: 15px;
+}
+.answers .add-answer{
+    color: #54c5ff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.answers .add-answer i{
+    margin-right: 5px;
+}
+.answers input.answer{
+    width: calc(100% - 40px);
+    float: left;
+    height: 40px;
+}
+.answers .remove-answer{
+    float: left;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+.answers .remove-answer i{
+    line-height: 40px;
+    color: #8e9ba2;
+}
+.tabContainerField .note{
+    font-size: 12px;
+    color: #8e9ba2;
+}
+label.crowdfunding, label.custom{
+    margin: 10px 0;
+    font-size: 12px;
+}
+label.crowdfunding input, label.custom input{
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.tabContainerField .info{
+    margin-top: 20px;
+}
+.tabContainerField .info .fields{
+    width: 150px;
+    float: left;
+    clear: both;
+    font-size: 14px;
+    line-height: 35px;
+}
+.tabContainerField .info .values{
+    float: left;
+    width: 150px;
+    height: 35px;
+}
+.tabContainerField .info .calendar{
+    background: url('../images/icons/calendar.png') no-repeat right 10px center;
+}
+.tabContainerField .info .btn-info{
+    height: auto;
+}
+.tabContainerField .info .dropdown-menu{
+    padding: 10px;
+}
+.tabContainerField .info .dropdown-menu th{
+    vertical-align: top;
+}
+.timepicker{
+    border: 1px solid #eae5e5;
+    margin-left: 20px;
+    position: relative;
+}
+.timepicker select{
+    width: 100%;
+    height: 100%;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    padding: 0 5px;
+}
+.timepicker::after{
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0px;
+    border-style: solid;
+    border-color: #00b3ea transparent;
+}

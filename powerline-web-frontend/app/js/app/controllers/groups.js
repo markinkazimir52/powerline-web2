@@ -120,7 +120,7 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
   $scope.$watch(groups.getNewGroups, function (newValue) {
     $scope.newItems = newValue;
   });
-}).controller('groups.profile',function ($scope,$rootScope, topBar, groups, $routeParams, $route, activity, invites, influence, homeCtrlParams, flurry) {
+}).controller('groups.profile',function ($scope,$rootScope, topBar, groups, $routeParams, $route, activity, invites, influence, homeCtrlParams, flurry, $state) {
   topBar
     .reset()
     .set('back', true)
@@ -128,7 +128,7 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
   ;
   influence.loadFollowers();
 
-  var id = parseInt($routeParams.id, 10);
+  var id = parseInt($routeParams.id, 10);  
 
   flurry.log('group profile', {id: id});
 
@@ -244,6 +244,7 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
     $scope.data = newValue;
     homeCtrlParams.leftBar.group = newValue;
   });
+
 }).controller('groups.join', function ($scope,$rootScope, topBar, $routeParams, groups, groupsInvites, homeCtrlParams, flurry) {
   topBar.reset().set('back', true).set('title', 'Join Group');
   $scope.loading = true;
@@ -335,7 +336,7 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
     }
   }
 
-}).controller('groups.create',function ($scope, topBar, groups, profile) {
+}).controller('groups.create',function ($scope, topBar, groups, profile, layout) {
   topBar.reset()
     .set('back', true)
     .set('title', 'New Group')
@@ -344,6 +345,8 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
       title: 'Send',
       click: create
     });
+
+  layout.setBodyClass('hidden-header');
 
   var user = profile.get();
   $scope.data = {
@@ -361,6 +364,26 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
     'Cooperative/Union',
     'Other'
   ];
+
+  $scope.interests = ['Animal', 'Children', 'Community', 'Criminal Justice', 'Democracy', 'Economy',
+                      'Education', 'Energy', 'Environment', 'Food', 'Global Education', 'Healthcare',
+                      'Human Rights', 'Industry', 'Inequality', 'Infrastructure', 'Labor', 'Leadership',
+                      'LGBT', 'NGOs', 'Peace', 'Politics', 'Poverty', 'Sustainability', 'Water',
+                      'Women\'s Rights'];
+
+  $scope.sel_interests = [];
+
+  $scope.setInterests = function(interest) {
+    if($scope.sel_interests.indexOf(interest) == -1)
+      $scope.sel_interests.push(interest);
+  }
+
+  $scope.removeInterest = function(interest) {
+    var index = $scope.sel_interests.indexOf(interest);
+    
+    if(index > -1)
+      $scope.sel_interests.splice(index, 1);
+  }
 
   function create() {
     $scope.createGroupForm.$filled = true;
@@ -392,5 +415,15 @@ angular.module('app.controllers').controller('groups',function ($scope, groups, 
         }
       });
     }
+  }
+}).controller('groups.create-step2',function ($scope, topBar, groups, profile, layout) {
+  layout.setBodyClass('hidden-header');
+})
+.controller('groups.create-step3',function ($scope, topBar, groups, profile, layout) {
+  layout.setBodyClass('hidden-header');
+
+  $scope.selTab = '';
+  $scope.tabSelect = function(tab){
+    $scope.selTab = tab;
   }
 });

@@ -254,13 +254,46 @@ angular.module('app.controllers').controller('home', function (
   
 
   $scope.user_expire_interval = $scope.expires_intervals[2];
+  $scope.profile = profile.get();  
   $scope.petition_types = ['quorum', 'open letter', 'long petition'];
-  $scope.profile = profile.get();
-
+  $scope.tag_types = ['post', 'petition', 'poll', 'discussion', 'fundraiser', 'event', 'announcements'];
   $scope.data = {
-    is_outsiders_sign: false,
-    type: $scope.petition_types[0]
+    'tag_type': $scope.tag_types[0]
+  }
+  
+
+  // Calender Config Options.
+  $scope.format = 'MMM-dd-yyyy';
+  $scope.dt = new Date();
+  
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
   };
+
+  $scope.dateOptions = {
+    showWeeks: false
+  };
+
+  $scope.time = '00:00';
+
+  $scope.answers = ['answer0'];
+  $scope.answerInx = 0;
+
+  $scope.addAnswer = function(i){
+    $scope.answers.push('answer'+i);
+    $scope.answerInx++;
+  }
+
+  $scope.removeAnswer = function(answer){
+    var index = $scope.answers.indexOf(answer);
+    
+    if(index > -1){
+      $scope.answers.splice(index, 1);
+    }
+  }
 
   $scope.create =  function(){
 
@@ -335,7 +368,7 @@ angular.module('app.controllers').controller('preload', function (topBar) {
   topBar.reset().set('title', 'Powerline').set('menu', true);
 });
 
-angular.module('app.controllers').directive('iActivity', function($rootScope, $location, questions, petitions, discussion, elapsedFilter) {
+angular.module('app.controllers').directive('iActivity', function($rootScope, $location, questions, petitions, discussion, elapsedFilter, groups) {
 
   function eventCtrl($scope) {
     $scope.templateSrc = 'templates/home/activities/event.html';
@@ -380,7 +413,7 @@ angular.module('app.controllers').directive('iActivity', function($rootScope, $l
     };
   }
 
-  function petitionCtrl($scope) {
+  function petitionCtrl($scope) {    
     $scope.templateSrc = 'templates/home/activities/petition.html';
     $scope.answer = function() {
       $scope.sending = true;
@@ -435,12 +468,12 @@ angular.module('app.controllers').directive('iActivity', function($rootScope, $l
     restrict: 'E',
     template: '<ng-include src="templateSrc"></ng-include>',
     controller: function($scope,$compile,$timeout) {
-      
+
       $scope.navigateTo = $rootScope.navigateTo;
 
       $scope.navigateToActivity = function(activity, focus) {
         activity.setRead();
-        $rootScope.navigateTo('activity', activity, focus);
+        $rootScope.navigateTo('activity', activity, focus);       
       };
 
       $scope.toggleComments = function(activity,$event){

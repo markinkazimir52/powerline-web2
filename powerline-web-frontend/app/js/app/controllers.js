@@ -5,6 +5,7 @@
 angular.module('app.controllers', [
   'app.filters',
   'app.services',
+  'ui.bootstrap',
   'ngRoute'
 ]).run(function ($cacheFactory, $rootScope, $ngBootbox, navigateTo, groupsInvites, announcements, $window, $location, $q, invites, follows, socialActivity) {
   var isMenuClosed = true;

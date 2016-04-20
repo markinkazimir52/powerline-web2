@@ -6,7 +6,8 @@ angular.module('app.services').factory('groups',function ($resource, serverConfi
 //        GROUP_TYPE_LOCAL = 3
     ;
 
-  var Groups = $resource(serverConfig.url + '/api/groups\\', null, {
+  // var Groups = $resource(serverConfig.url + '/api/groups\\', null, {
+  var Groups = $resource(serverConfig.url + '/api/groups', null, {    
     get: {
       method: 'GET',
       isArray: false,
@@ -129,7 +130,7 @@ angular.module('app.services').factory('groups',function ($resource, serverConfi
     },
 
     getGroup: function (id) {
-      return groupsById[id];
+      return groupsById[id];    
     },
 
     getUserGroup: function (id) {
@@ -148,8 +149,8 @@ angular.module('app.services').factory('groups',function ($resource, serverConfi
       var deferred = $q.defer();
       var data = Groups.get({id: id}, function () {
         parseInfo(data);
-        groupsInfo[id] = data;
-        deferred.resolve();
+        groupsInfo[id] = data;     
+        deferred.resolve(data);
       }, function (data, status) {
         deferred.reject(data, status);
       });

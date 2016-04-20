@@ -1,113 +1,180 @@
 <div class="postFieldWrapper" >
 
-             <form name="petitionForm" novalidate ng-class="formClass" ng-submit="create();" autocomplete="off">
+    <form name="petitionForm" novalidate ng-class="formClass" ng-submit="create();" autocomplete="off">
 
-                <div class="right">
+        <!-- <div class="right">
+            <select ng-if="filter.displayGroups" name="group" dd-select="filter.displayGroups" icon="avatar_file_path" acronym="acronym" text="official_title" value="id" count="unansweredCount" highlight="filter.selectedGroup" click="filter.selectedGroup">
+            </select>
+        </div> -->
 
-                <select 
-                    ng-if="filter.displayGroups" 
-                    name="group"  
-                    dd-select="filter.displayGroups" 
-                    icon="avatar_file_path" 
-                    acronym="acronym" 
-                    text="official_title" 
-                    value="id" 
-                    count="unansweredCount" 
-                    highlight="filter.selectedGroup" 
-                    click="filter.selectedGroup"
-                ></select>
-                    
+        <div class="tabs home-tabs" style="margin-top:0px;">
+            <ul>
+                <li ng-class="{'active':data.tag_type==tag_types[0]}" ng-click="data.tag_type=tag_types[0]"><a href="javascript:;" ><i class="icon pencilIcon"></i></a></li>
+                <li ng-class="{'active':data.tag_type==tag_types[1]}" ng-click="data.tag_type=tag_types[1]"><a href="javascript:;" ><i class="icon paperPenIcon"></i></a></li>
+                <li ng-class="{'active':data.tag_type==tag_types[2]}" ng-click="data.tag_type=tag_types[2]"><a href="javascript:;" ><i class="icon chartIcon"></i></a></li>
+                <li ng-class="{'active':data.tag_type==tag_types[3]}" ng-click="data.tag_type=tag_types[3]"><a href="javascript:;" ><i class="icon chatIcon"></i></a></li>
+                <li ng-class="{'active':data.tag_type==tag_types[4]}" ng-click="data.tag_type=tag_types[4]"><a href="javascript:;" ><i class="icon fundIcon"></i></a></li>
+                <li ng-class="{'active':data.tag_type==tag_types[5]}" ng-click="data.tag_type=tag_types[5]"><a href="javascript:;" ><i class="icon eventIcon"></i></a></li>
+                <li ng-class="{'active':data.tag_type==tag_types[6]}" ng-click="data.tag_type=tag_types[6]"><a href="javascript:;" ><i class="icon announIcon"></i></a></li>
+            </ul>
+        </div>
 
+        <div class="tabContainer">
+            <div ng-show="data.tag_type==tag_types[0]" class="post tabContainerField">
+                <h5>Post</h5>
+                <textarea ng-model="data.post_body" name="post_body" required placeholder="What's on your mind?"></textarea>
+            </div>
+            <div ng-show="data.tag_type==tag_types[1]" class="petition tabContainerField">
+                <h5>Start a Petition<span>(6) petitions left for this group</span></h5>
+                <input type="text" ng-model="data.petition_title" name="title" placeholder="Petition Title" />
+                <textarea ng-model="data.petition_desc" name="petition_desc" required placeholder="Description"></textarea>
+            </div>
+            <div ng-show="data.tag_type==tag_types[2]" class="poll tabContainerField">
+                <h5>Make a Poll</h5>
+                <input type="text" ng-model="data.question" name="question" placeholder="Question" />
+                <div class="answers">
+                    <a class="add-answer" ng-click="addAnswer(answerInx+1)"><i class="fa fa-plus-circle"></i>Add Answers</a>
+                    <div ng-repeat="answer in answers">
+                        <input type="text" class="answer" placeholder="Enter an answer" /><a class="remove-answer" ng-click="removeAnswer(answer)"><i class="fa fa-times"></i></a>
+                    </div>
                 </div>
+            </div>
+            <div ng-show="data.tag_type==tag_types[3]" class="discussion tabContainerField">
+                <h5>Discussion</h5>                
+                <textarea ng-model="data.discussion" name="discussion" required placeholder="Enter your topic"></textarea>
+            </div>
+            <div ng-show="data.tag_type==tag_types[4]" class="fundraiser tabContainerField">
+                <h5 class="left">Fundraiser</h5>
+                <label class="right crowdfunding"><input type="checkbox">Crowdfunding</label>
+                <input type="text" ng-model="data.fundraiser" name="fundraiser" placeholder="Fundraiser Title" />
+                <textarea ng-model="data.desc" name="desc" required placeholder="Description"></textarea>
+                <div class="info">
+                    <span class="fields">Goal Amount</span><input type="text" class="values" placeholder="$10,000">
+                    <span class="fields">End of Event</span>
+                    <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
+                    <time-picker class="values timepicker" ng-model="time"></time-picker>
 
-                <div class="tabs" style="margin-top:0px;">
+                    <div class="answers">
+                        <a class="add-answer" ng-click="addAnswer(answerInx+1)"><i class="fa fa-plus-circle"></i>Add Answers</a>
+                        <div ng-repeat="answer in answers">
+                            <input type="text" class="answer" placeholder="Enter an answer" /><a class="remove-answer" ng-click="removeAnswer(answer)"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                    <label class="right custom"><input type="checkbox">Custom</label>
+                </div>
+            </div>
+            <div ng-show="data.tag_type==tag_types[5]" class="event tabContainerField">
+                <h5 class="left">Event</h5>
+                <input type="text" ng-model="data.event" name="event" placeholder="Event Title" />
+                <textarea ng-model="data.desc" name="desc" required placeholder="Description"></textarea>
+                <div class="info">
+                    <span class="fields">Start of Event</span>
+                    <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
+                    <time-picker class="values timepicker" ng-model="time"></time-picker>
 
+                    <span class="fields">End of Event</span>
+                    <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
+                    <time-picker class="values timepicker" ng-model="time"></time-picker>
+
+                    <div class="answers">
+                        <a class="add-answer" ng-click="addAnswer(answerInx+1)"><i class="fa fa-plus-circle"></i>Add RSVP Responses</a>
+                        <div ng-repeat="answer in answers">
+                            <input type="text" class="answer" placeholder="Yes, I will attend." /><a class="remove-answer" ng-click="removeAnswer(answer)"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="data.tag_type==tag_types[6]" class="tabContainerField">
+                <h5>Make an Announcement</h5>
+                <input type="text" ng-model="data.announ" name="announcement" placeholder="Enter your message" />
+                <span class="note"><i>Note: 250 character limit, hyperlinks will be cut to 20 symbols</i></span>
+            </div>
+
+            <div ng-show="data.tag_type==tag_types[1] || data.tag_type==tag_types[2] || data.tag_type==tag_types[3] || data.tag_type==tag_types[4] || data.tag_type==tag_types[5]" class="tabContainerField attach-wrap">
+                <div class="filter-wrap">
+                    <a class="public-link"><img src="images/icons/public.png">Make Public | </a> 
+                    <a class="public-link">View Public Link</a>
+                    <div class="drop-down">
+                        <span>Send to:</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All Group Members <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">All Group Members</a></li>
+                                <li><a href="#">Member1</a></li>
+                                <li><a href="#">Member2</a></li>
+                                <li><a href="#">Member3</a></li>
+                            </ul>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="attachments">
+                    <span class="attach-title">Attachments:</span>
+                    <div class="seperate-line"></div>
                     <ul>
-
-                        <li ng-class="{'active':data.type==petition_types[0]}" ng-click="data.type=petition_types[0]"><a href="javascript:;" ><i class="icon pencilIcon"></i> New Post</a></li>
-
-                        <li ng-class="{'active':data.type==petition_types[2]}" ng-click="data.type=petition_types[2]"><a href="javascript:;" ><i class="icon paperPenIcon"></i> New Petition</a></li>
-
+                        <li>
+                            <img src="images/attach1.png">
+                            <div class="attach-info">
+                                <span class="attach_name">sample-image-name.jpeg</span>
+                                <a class="change">change | </a><a class="remove">&nbsp;remove</a>    
+                            </div>                            
+                        </li>
+                        <li>
+                            <img src="images/attach2.png">
+                            <div class="attach-info">
+                                <span class="attach_name">www.video.com/samplevideolink</span>
+                                <a class="change">change | </a><a class="remove">&nbsp;remove</a>
+                            </div>                            
+                        </li>
                     </ul>
-
+                    <p class="comment">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                 </div>
-
-                <div class="tabContainer">
-
-                
-
-                    
-
-                        
-                        <div ng-show="data.type==petition_types[2]" class="title-field tabContainerField" ng-class="invalidClass(petitionForm.title.$invalid)">
-
-                            <input type="text" ng-model="data.title" name="title" maxlength="255" ng-required='data.type==petition_types[2]' placeholder="Type title here" />
-
-                        </div>
-
-                        <div class="tabContainerField">
-
-                            <textarea 
-                                ng-if="data.type==petition_types[0]"
-                                ng-model="data.petition_body"
-                                name="petition_body" 
-                                required placeholder="Type your message here" 
-                                maxlength="300" 
-                                ng-init="data.chars_left = 300"
-                                ng-change="data.chars_left = 300 - data.petition_body.length"
-                            ></textarea>
-
-                            <textarea 
-                                ng-if="data.type==petition_types[2]" 
-                                ng-model="data.petition_body"
-                                name="petition_body" 
-                                required placeholder="Type your message here" 
-                                maxlength="2500" 
-                                ng-init="data.chars_left = 2500"
-                                ng-change="data.chars_left = 2500 - data.petition_body.length"
-                            ></textarea>
-
-                            <span class="remainingWord" ng-bind="data.chars_left"></span>
-                            
-                        </div>
-                        
-                        
-
-                        <div class="tabContainerField">
-
-                            <div ng-show="filter.currGrp1.available" class="left remainingPetition">
-                                {{ filter.currGrp1.available }} petitions left in this group
-                            </div>
-
-                            <section class="ng-hide">
-                                <input type="hidden" ng-model="data.group" name="group">
-                                <input type="hidden" ng-model="user_expire_interval" name="user_expire_interval">
-                                <input type="hidden" ng-model="data.type" name="type">
-                            </section>
-
-                            <div class="right postSubmitBtn">
-                                <input type="submit" value="Post">
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-
-                    
-
-                    
-
+                <div class="add_buttons">
+                    <a class="add-photo btn"><img src="images/icons/add-photo.png"><span>Add Photo</span></a>
+                    <a class="add-video btn"><img src="images/icons/add-video.png"><span>Add Video</span></a>
+                    <a class="add-text btn"><img src="images/icons/add-text.png"><span>Add Text</span></a>
                 </div>
+            </div>
 
-                </form>
+            <!-- <div ng-show="data.tag_type==tag_types[1]" class="title-field tabContainerField" ng-class="invalidClass(petitionForm.title.$invalid)">
+                <input type="text" ng-model="data.title" name="title" maxlength="255" ng-required='data.tag_type==tag_types[1]' placeholder="Type title here" />
+            </div>
 
-             </div>
+            <div class="tabContainerField">
+                <textarea ng-if="data.tag_type==tag_types[0]" ng-model="data.petition_body" name="petition_body" required placeholder="Type your message here" maxlength="300" ng-init="data.chars_left = 300" ng-change="data.chars_left = 300 - data.petition_body.length"></textarea>
+                <textarea ng-if="data.tag_type==tag_types[1]" ng-model="data.petition_body" name="petition_body" required placeholder="Type your message here" maxlength="2500" ng-init="data.chars_left = 2500" ng-change="data.chars_left = 2500 - data.petition_body.length"></textarea>
+                <span class="remainingWord" ng-bind="data.chars_left"></span>
+            </div> -->
 
+            <div class="tabContainerField">
+                <div ng-show="filter.currGrp1.available" class="left remainingPetition">
+                    {{ filter.currGrp1.available }} petitions left in this group
+                </div>
+                <!-- <section class="ng-hide">
+                    <input type="hidden" ng-model="data.group" name="group">
+                    <input type="hidden" ng-model="user_expire_interval" name="user_expire_interval">
+                    <input type="hidden" ng-model="data.type" name="type">
+                </section> -->
+                <div class="right postSubmitBtn">
+                    <input type="submit" value="Post">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
              
-             <div class="wrap-center" style="position: static;padding-top: 50px;" ng-show="loading"><spinner></spinner></div>
+<div class="wrap-center" style="position: static;padding-top: 50px;" ng-show="loading"><spinner></spinner></div>
 <p class="info-message" ng-show="!loading && !activities.length && !filter.selectedGroup">
-  Hmm - Your newsfeed is empty! Looks like a great opportunity to take a stand, start a discussion,
-  or improve your community by creating a post or petition.
+    Hmm - Your newsfeed is empty! Looks like a great opportunity to take a stand, start a discussion,
+    or improve your community by creating a post or petition.
 </p>
-<section ng-show="!loading"
+
+<section ng-show="!loading" 
          ng-style="{'height': (minContentHeight - 134)}"
-         class="activity-list-wrap" ng-include=" 'templates/home/activities.html' "></section>
+         class="activity-list-wrap" 
+         ng-include=" 'templates/home/activities.html' ">
+</section>

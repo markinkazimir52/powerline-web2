@@ -1,6 +1,7 @@
 angular.module('app.services').factory('representatives', function ($resource, serverConfig, $q, $http) {
 
-  var Representatives = $resource(serverConfig.url + '/api/representatives\\', {}, {
+  // var Representatives = $resource(serverConfig.url + '/api/representatives\\', {}, {
+  var Representatives = $resource(serverConfig.url + '/api/representatives', {}, {
     get: {
       method: 'GET',
       isArray: false,

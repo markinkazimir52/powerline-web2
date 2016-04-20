@@ -14,7 +14,7 @@
 <div class="activities-list"  ng-hide="togglePopular">
   <div class="activity-margin activity-container" 
   ng-repeat="activity in activities">
-     <i-activity  activity="activity" bindonce></i-activity>
+     <i-activity activity="activity" bindonce></i-activity>
      <ng-include ng-show="activity.toggleShare" src="'templates/widget/share.html'"></ng-include>
      <div class="discussion-container"></div>
   </div>

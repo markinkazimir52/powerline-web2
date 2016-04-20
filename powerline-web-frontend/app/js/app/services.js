@@ -32,7 +32,7 @@ angular.module('app.services', [
   };
 
   return service;
-}).factory('navigateTo', function ($location) {
+}).factory('navigateTo', function ($location, $state, groups) {
 
   var activityRoutes = {
     'question': '/questions/',
@@ -91,17 +91,22 @@ angular.module('app.services', [
       }
     },
     'group-profile': function (group) {
-      $location.path('/group/' + group.id);
+      var groupname = group.official_title.replace(/\s+/g, '');
+      $state.go('group', {'groupname': groupname, 'groupid': group.id});
+      //$location.path('/group/' + group.id);
     },
     'group-join': function (group) {
       $location.path('/group/' + group.id + '/join/' + group.membership_control + '/' + Number(group.fill_fields_required || 0));
     },
     'activity': function (activity, focus) {
+      var official_title = activity.official_title;
       var path = activityRoutes[activity.get('entity').type] + activity.get('entity').id;
+      
       if (focus) {
         $location.path(path).search('focus', focus);
       } else {
-        $location.path(path);
+        $state.go('petition', {'paramStr': official_title, 'id': activity.get('entity').id});
+        // $location.path(path);
       }
     },
     'target': function (type, id) {

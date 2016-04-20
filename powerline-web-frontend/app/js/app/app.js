@@ -28,13 +28,14 @@
       $httpProvider.responseInterceptors.push('authInterceptor');
 
       //$locationProvider.html5Mode(true).hashPrefix('!');;
+      //$locationProvider.html5Mode(true);
 
       // defaults to Radar Page
       $urlRouterProvider.otherwise('/main');
       
-      // -----------------------------------
+      // ----------------------------------------------------------------------
       // Application Routes
-      // -----------------------------------   
+      // ----------------------------------------------------------------------
       $stateProvider
           .state('/', {
               url: '/',
