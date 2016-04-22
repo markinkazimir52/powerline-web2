@@ -56,10 +56,12 @@
                         <time-picker class="values timepicker" ng-model="time"></time-picker>
                     </div>                    
 
-                    <div class="answers">
-                        <a class="add-answer" ng-click="addAnswer(answerInx+1)"><i class="fa fa-plus-circle"></i>Add Answers</a>
-                        <div ng-repeat="answer in answers">
-                            <input type="text" class="answer" placeholder="Enter an answer" /><a class="remove-answer" ng-click="removeAnswer(answer)"><i class="fa fa-times"></i></a>
+                    <div class="fund-answers">
+                        <a class="add-answer" ng-click="addFundAnswer(fundAnswerInx+1)"><i class="fa fa-plus-circle"></i>Add Answers</a>
+                        <div ng-repeat="answer in fundAnswers">
+                            <input type="text" class="amount" placeholder="Amount" />
+                            <input type="text" class="answer" placeholder="Description" />                            
+                            <a class="remove-answer" ng-click="removeFundAnswer(answer)"><i class="fa fa-times"></i></a>
                         </div>
                     </div>
                     <label class="right custom"><input type="checkbox">Custom</label>

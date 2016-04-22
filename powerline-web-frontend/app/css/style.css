@@ -769,19 +769,19 @@ hash-tag{
 .postSubmitBtn{
     margin-top: 10px;
 }
-.answers{
+.answers, .fund-answers{
     width: 100%;
     display: inline-block;
     margin-top: 15px;
 }
-.answers .add-answer{
+.answers .add-answer, .fund-answers .add-answer{
     color: #54c5ff;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
     display: inline-block;
 }
-.answers .add-answer i{
+.answers .add-answer i, .fund-answers .add-answer i{
     margin-right: 5px;
 }
 .answers input.answer{
@@ -789,13 +789,24 @@ hash-tag{
     float: left;
     height: 40px;
 }
-.answers .remove-answer{
+.fund-answers input.answer{
+    width: calc(100% - 160px);
+    float: left;
+    height: 40px;
+}
+.fund-answers input.amount{
+    width: 100px;
+    float: left;
+    height: 40px;
+    margin-right: 20px;
+}
+.answers .remove-answer, .fund-answers .remove-answer{
     float: left;
     width: 40px;
     height: 40px;
     text-align: center;
 }
-.answers .remove-answer i{
+.answers .remove-answer i, .fund-answers .remove-answer i{
     line-height: 40px;
     color: #8e9ba2;
 }

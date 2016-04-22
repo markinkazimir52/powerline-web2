@@ -295,6 +295,22 @@ angular.module('app.controllers').controller('home', function (
     }
   }
 
+  $scope.fundAnswers = ['answer0'];
+  $scope.fundAnswerInx = 0;
+
+  $scope.addFundAnswer = function(i){
+    $scope.fundAnswers.push('answer'+i);
+    $scope.fundAnswerInx++;
+  }
+
+  $scope.removeFundAnswer = function(answer){
+    var index = $scope.fundAnswers.indexOf(answer);
+    
+    if(index > -1){
+      $scope.fundAnswers.splice(index, 1);
+    }
+  }
+
   $scope.create =  function(){
 
     if ($scope.petitionForm.$invalid) {
