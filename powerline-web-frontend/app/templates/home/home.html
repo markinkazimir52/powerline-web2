@@ -45,14 +45,16 @@
             </div>
             <div ng-show="data.tag_type==tag_types[4]" class="fundraiser tabContainerField">
                 <h5 class="left">Fundraiser</h5>
-                <label class="right crowdfunding"><input type="checkbox">Crowdfunding</label>
+                <label class="right crowdfunding" ng-class="crowdfunder? 'selected':''" ng-click="crowdfunder = !crowdfunder">Crowdfunding</label>
                 <input type="text" ng-model="data.fundraiser" name="fundraiser" placeholder="Fundraiser Title" />
                 <textarea ng-model="data.desc" name="desc" required placeholder="Description"></textarea>
                 <div class="info">
-                    <span class="fields">Goal Amount</span><input type="text" class="values" placeholder="$10,000">
-                    <span class="fields">End of Event</span>
-                    <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
-                    <time-picker class="values timepicker" ng-model="time"></time-picker>
+                    <div ng-if="crowdfunder">
+                        <span class="fields">Goal Amount</span><input type="text" class="values" placeholder="$10,000">
+                        <span class="fields">End of Event</span>
+                        <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
+                        <time-picker class="values timepicker" ng-model="time"></time-picker>
+                    </div>                    
 
                     <div class="answers">
                         <a class="add-answer" ng-click="addAnswer(answerInx+1)"><i class="fa fa-plus-circle"></i>Add Answers</a>

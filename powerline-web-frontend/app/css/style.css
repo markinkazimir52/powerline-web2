@@ -807,6 +807,9 @@ label.crowdfunding, label.custom{
     margin: 10px 0;
     font-size: 12px;
 }
+label.crowdfunding.selected {
+    color: #54c5ff;
+}
 label.crowdfunding input, label.custom input{
     margin-right: 5px;
     margin-bottom: 5px;
