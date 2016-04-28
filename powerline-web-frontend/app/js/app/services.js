@@ -128,6 +128,7 @@ angular.module('app.services', [
     recommendedGroups : [],
     myInfluences : [],
     influencesToFollow : [],
+    selectedLocationGroup: null
   },
   leftBar:{
     currUser:null,

@@ -94,7 +94,6 @@ angular.module('app.controllers').controller('home', function (
     });
 
     homeCtrlParams.filter.displayGroups = displayGroups;
-
     
     
     var start = new Date();
@@ -311,6 +310,77 @@ angular.module('app.controllers').controller('home', function (
     }
   }
 
+  $scope.createPost = function() {
+
+    if ($scope.postForm.$invalid) {
+      $scope.formClass = 'error';
+      if ($scope.postForm.post_body.$error.required) {
+        $scope.alert('No message entered', null, 'Error', 'OK');
+      } else {
+        $scope.alert(errorFormMessage($scope.postForm)[0], null, 'Error', 'OK');
+      }
+    } else if(!homeCtrlParams.filter.selectedLocationGroup){
+        $scope.alert('No group selected', null, 'Error', 'OK');
+    }else{
+      var params = {
+        'group_id': homeCtrlParams.filter.selectedLocationGroup.id,
+        'user_expire_interval': $scope.user_expire_interval,
+        'type': $scope.petition_types[0],
+        'title': 'micro petition',
+        'petition_body': $scope.postForm.post_body
+      }
+      
+      groups.create(params).then(function(response){
+        console.log(response);
+      }, function(error){
+
+      })
+      
+      // var formData = getFormData($scope.postForm, {
+      //   group: ['group_id', function (group) {
+      //     return homeCtrlParams.filter.selectedLocationGroup.id;
+      //   }],
+      //   user_expire_interval: function (item) {
+      //     return item.value;
+      //   }
+      // });
+      // var petition = new PetitionsResource(formData);
+      // $scope.loading = true;
+      // petition.$save(function () {
+      //   homeCtrlParams.loaded = false;
+      //   flurry.log('micro petition created');
+      //   $route.reload();
+      //   /*
+      //   if ($routeParams.group_id) {
+      //     petitions.loadAll().then($scope.back, $scope.back);
+      //   } else {
+      //     $scope.back();
+      //   }
+      //   */
+      // }, function (response) {
+      //   $scope.loading = false;
+      //   if (response.status === 406) {
+      //     $scope.alert('Your limit of petitions per month is reached for this group', null, 'Error', 'OK');
+      //     return;
+      //   }
+      //   if (response.data && response.data.errors) {
+      //     _(response.data.errors).each(function (error) {
+      //       var property = camelcase2underscore(error.property);
+      //       // if ($scope.petitionForm[property]) {
+      //       //   $scope.petitionForm[property].$setValidity('required', false);
+      //       // }
+      //     });
+      //     if (response.data.errors.length) {
+      //       $scope.alert(response.data.errors[0].message, null, 'Error', 'OK');
+      //     }
+      //     $scope.formClass = 'error';
+      //   } else {
+      //     $scope.alert('Error occurred', null, 'Error', 'OK');
+      //   }
+      // });
+    }
+  }
+
   $scope.create =  function(){
 
     if ($scope.petitionForm.$invalid) {
@@ -368,8 +438,7 @@ angular.module('app.controllers').controller('home', function (
         }
       });
     }
-  };
- /* petion.add */
+  };  
 });
 
 angular.module('app.controllers').run(function(homeCtrlParams, $document, $rootScope) {

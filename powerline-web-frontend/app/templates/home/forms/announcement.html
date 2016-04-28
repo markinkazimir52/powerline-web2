@@ -1,0 +1,15 @@
+<form name="announceForm" novalidate ng-class="formClass" ng-submit="createAnnounce();" autocomplete="off">
+	<h5>Make an Announcement</h5>
+    <input type="text" ng-model="data.announ" name="announcement" placeholder="Enter your message" />
+    <span class="note"><i>Note: 250 character limit, hyperlinks will be cut to 20 symbols</i></span>
+
+    <div class="tabContainerField">
+        <div ng-show="filter.currGrp1.available" class="left remainingPetition">
+            {{ filter.currGrp1.available }} petitions left in this group
+        </div>
+        <div class="right postSubmitBtn">
+            <input type="submit" value="Post">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>
