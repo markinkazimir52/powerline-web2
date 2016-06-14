@@ -2,6 +2,10 @@
     <a ng-click="invite()" class="micropetition">Invite Followers to Group</a>
 </section>
 
+<button class="btn-large btn-primary"
+   ng-show="isChangeAvailable()"
+   ng-click="enableManage = !enableManage"
+   style="text-transform: capitalize;position: absolute;top: -133px;width: 150px;right: -107px;">Manage</button>
 
 <button class="btn-large"
    ng-show="isChangeAvailable()"
@@ -27,6 +31,345 @@
             <i class="icon-address"></i>
         </li>
     </ul>
+</section>
+
+<section class="manage-group margin-v-8" ng-show="enableManage">
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Subscription Level
+            <i class="icon-group icon-subscription"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none; margin-top: 0;">
+            <div class="subscription-level">
+              <div class="subscription-header">
+                <span class="title"><b>Current Account: Gold</b></span>
+                <span class="date">Expire at: Thu, 05 Nov 15 17:52:19 +0000</span>
+                <span class="cancel"><b>Cancel subscription</b></span>
+              </div>
+              <div class="subscriptions">
+                <div class="subscription">
+                  <div class="membership">
+                    <span class="type">Free</span>
+                    <span class="price">/month</span>
+                  </div>
+                  <div class="info">
+                    <span class="title">Get Started</span>
+                    <span>Audience: Unlimited</span>
+                    <span>Size: Unlimited</span>
+                  </div>
+                  <button class="btn btn-default select-btn">Select</button>
+                </div>
+                <div class="subscription">
+                  <div class="membership">
+                    <span class="type">Silver</span>
+                    <span class="price">$19/month</span>
+                  </div>
+                  <div class="info">
+                    <span class="title">For Controls</span>
+                    <span>Audience: Not Business</span>
+                    <span>Size: Under 1k users</span>
+                  </div>
+                  <button class="btn btn-default select-btn">Select</button>
+                </div>
+                <div class="subscription">
+                  <div class="membership">
+                    <span class="type">Gold</span>
+                    <span class="price">$39/month</span>
+                  </div>
+                  <div class="info">
+                    <span class="title">Get Growth</span>
+                    <span>Audience: Unlimited</span>
+                    <span>Size: Under 5k users</span>
+                  </div>
+                  <button class="btn btn-default select-btn">Select</button>
+                </div>
+                <div class="subscription">
+                  <div class="membership">
+                    <span class="type">Platinum</span>
+                    <span class="price">$125/month</span>
+                  </div>
+                  <div class="info">
+                    <span class="title">For Insights</span>
+                    <span>Audience: Not Business</span>
+                    <span>Size: Unlimited</span>
+                  </div>
+                  <button class="btn btn-default select-btn">Select</button>
+                </div>
+                <div class="subscription">
+                  <div class="membership">
+                    <span class="type">Commercial</span>
+                    <span class="price">Contact Us</span>
+                  </div>
+                  <div class="info">
+                    <span class="title">For Business</span>
+                    <span>Audience: Business</span>
+                    <span>Size: Unlimited</span>
+                  </div>
+                  <button class="btn btn-default select-btn">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Membership Control
+            <i class="icon-group icon-membership"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="membership-control">
+              <div class="selectBox">
+                <select>
+                  <option>Public(Open to All)</option>
+                </select>                
+              </div>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Payments and Fundraising
+            <i class="icon-group icon-payment"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="payment-setup">
+              <div class="payment-option">
+                <span>Bank Account Information</span>
+                <div class="input-field"><i class="fa fa-lock"></i><input type="text" class="payment-info" placeholder="Bank of America N.A. 3776" /></div>
+                <a class="edit"><i class="fa fa-pencil"></i>Edit</a>
+              </div>
+              <div class="payment-option">
+                <span>Card Information</span>
+                <div class="input-field">
+                  <i class="fa fa-lock"></i>
+                  <input type="text" class="payment-info" placeholder="Visa 9662" />
+                  <a class="remove">Remove</a>
+                </div>
+                <a class="edit"><i class="fa fa-pencil"></i>Edit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Group Permissions
+            <i class="icon-group icon-permission"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="group-permissions">
+              <p class="permission"><input type="checkbox" id="name" /><label for="name">Name</label></p>
+              <p class="permission"><input type="checkbox" id="phone_number" /><label for="phone_number">Phone Number</label></p>
+              <p class="permission"><input type="checkbox" id="address" /><label for="address">Address</label></p>
+              <p class="permission"><input type="checkbox" id="responses" /><label for="responses">Responses</label></p>
+              <p class="permission"><input type="checkbox" id="email" /><label for="email">Email</label></p>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Post Settings
+            <i class="icon-group icon-micropetition"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="post-settings">
+              <span>Limit Micropetitions per Month</span>
+              <div class="selectBox">
+                <select>
+                  <option>5</option>
+                </select>
+              </div>
+              <span>Quorum Percentage (optional)</span>
+              <div class="selectBox">
+                <select>
+                  <option>10</option>
+                </select>
+              </div>
+              <span>Quorum Duration (optional)</span>
+              <div class="selectBox">
+                <select>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Manage Group Users
+            <i class="icon-group icon-manageGroup"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="group-users">
+              <div class="group-users-header">
+                <span class="id">ID</span>
+                <span class="name">Name</span>
+                <span class="email">EMAIL</span>
+                <span class="approve">Approve</span>
+                <span class="reject">Reject</span>
+              </div>
+              <ul>
+                <li>
+                  <div class="id"><span>01</span></div>
+                  <div class="name"><span>Dev Mike</span></div>
+                  <div class="email"><span>mikhail.benedziktovich+1@gmail.com</span></div>
+                  <div class="approve-btn"><a>Set as Group Manager</a></div>
+                  <div class="remove-btn"><a><i class="fa fa-trash"></i></a></div>
+                </li>
+                <li>
+                  <div class="id"><span>02</span></div>
+                  <div class="name"><span>Sandesh B</span></div>
+                  <div class="email"><span>sandesh5bhalekar@gmail.com</span></div>
+                  <div class="approve-btn"><a>Set as Group Manager</a></div>
+                  <div class="remove-btn"><a><i class="fa fa-trash"></i></a></div>
+                </li>
+                <li>
+                  <div class="id"><span>03</span></div>
+                  <div class="name"><span>Nikita Anikeev</span></div>
+                  <div class="email"><span>nanikeev+1@gmail.com</span></div>
+                  <div class="approve-btn"><a>Set as Group Manager</a></div>
+                  <div class="remove-btn"><a><i class="fa fa-trash"></i></a></div>
+                </li>
+                <li>
+                  <div class="id"><span>04</span></div>
+                  <div class="name"><span>Jesse Chen</span></div>
+                  <div class="email"><span>jterps08z@gmail.com</span></div>
+                  <div class="approve-btn"><a>Set as Group Manager</a></div>
+                  <div class="remove-btn"><a><i class="fa fa-trash"></i></a></div>
+                </li>
+                <li>
+                  <div class="id"><span>05</span></div>
+                  <div class="name"><span>Austin Papp</span></div>
+                  <div class="email"><span>austin@powerli.ne</span></div>
+                  <div class="approve-btn"><a>Set as Group Manager</a></div>
+                  <div class="remove-btn"><a><i class="fa fa-trash"></i></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Invites
+            <i class="icon-group icon-invites"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="invites">
+              <input type="text" class="emails" placeholder="Enter Email Addresses (seperated by comma ','">
+              <button class="btn btn-default send-btn">Send</button>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Sub-Group Definition and Assignment
+            <i class="icon-group icon-section"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="sub-groups">
+              <a class="new-group-section right"><i class="fa fa-plus-circle"></i>New Group Section</a>
+              <div class="sub-group">
+                <h5>SAMPLE GROUP1</h5>
+                <ul>
+                  <li>
+                    <div class="name"><span>Dev Mike</span></div>
+                    <div class="email"><span>mikhail.benedziktovich+1@gmail.com</span></div>
+                  </li>
+                  <li>
+                    <div class="name"><span>Sandesh B</span></div>
+                    <div class="email"><span>sandesh5bhalekar@gmail.com</span></div>
+                  </li>
+                  <li>
+                    <div class="name"><span>Nikita Anikeev</span></div>
+                    <div class="email"><span>nanikeev+1@gmail.com</span></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="sub-group">
+                <h5>SAMPLE GROUP2</h5>
+                <ul>
+                  <li>
+                    <div class="name"><span>Dev Mike</span></div>
+                    <div class="email"><span>mikhail.benedziktovich+1@gmail.com</span></div>
+                  </li>
+                  <li>
+                    <div class="name"><span>Sandesh B</span></div>
+                    <div class="email"><span>sandesh5bhalekar@gmail.com</span></div>
+                  </li>
+                  <li>
+                    <div class="name"><span>Nikita Anikeev</span></div>
+                    <div class="email"><span>nanikeev+1@gmail.com</span></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <fieldset class="groups-2">
+        <div class="group-2" i-groups="0">
+          <h3 ng-click="toggle()" >
+            Profile Setup
+            <i class="icon-group icon-profileSetup"></i>
+            <i class="control"></i>
+          </h3>
+          <div i-toggle-elem style="display: none">
+            <div class="profile-setup">
+              <div class="profile-image">
+                <img src="images/profilePic-default.png">
+                <div class="image-upload">
+                  <span>Group Avatar <small>(at least 180*180 pixels)</small></span>
+                  <input type="text" class="emails" placeholder="Select File">
+                  <button class="btn btn-default upload-btn">Upload</button>
+                </div>
+              </div>
+              <div class="profile-infos">
+                <input type="text" class="half left" placeholder="Group Name">
+                <div class="selectBox half right">
+                  <select>
+                    <option>Group Type</option>
+                  </select>
+                </div>
+                <input type="text" class="half left" placeholder="Group Description (optional)" />
+                <input type="text" class="half right" placeholder="Group Acronym (optional)" />
+                <input type="text" class="full" placeholder="Group Address (optional)" />
+                <input type="text" class="half left" placeholder="Group City (optional)" />
+                <input type="text" class="half right" placeholder="Group State (optional)" />
+                <input type="text" class="full" placeholder="Group ID" />
+              </div>
+              <div class="profile-infos">
+                <input type="text" class="half left" placeholder="Manager's First Name (optional)" />
+                <input type="text" class="half right" placeholder="Manger's Last Name (optional)" />
+                <input type="text" class="half left" placeholder="Manager's Email" />
+                <input type="text" class="half right" placeholder="Manger's Phone (optional)" />
+              </div>
+              <button class="btn btn-default save-btn">Save</button>
+            </div>
+          </div>
+        </div>
+    </fieldset>
 </section>
 
 <section ng-show="data.joined">

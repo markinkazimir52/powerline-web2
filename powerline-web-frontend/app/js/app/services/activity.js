@@ -281,7 +281,7 @@ angular.module('app.services').factory('activity',
         });
       },
 
-      setEntityRead: function (entity) {
+      setEntityRead: function (entity) {        
         deferredRead.push(entity);
       },
 

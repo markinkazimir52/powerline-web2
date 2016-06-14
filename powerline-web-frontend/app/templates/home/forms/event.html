@@ -1,0 +1,78 @@
+<form name="eventForm" novalidate ng-class="formClass" ng-submit="createEvent();" autocomplete="off">
+    <h5 class="left">Event</h5>
+    <input type="text" ng-model="data.event" name="event" placeholder="Event Title" />
+    <textarea ng-model="data.desc" name="desc" required placeholder="Description"></textarea>
+    <div class="info">
+        <span class="fields">Start of Event</span>
+        <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
+        <time-picker class="values timepicker" ng-model="time"></time-picker>
+
+        <span class="fields">End of Event</span>
+        <input type="text" class="values calendar" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" />
+        <time-picker class="values timepicker" ng-model="time"></time-picker>
+
+        <div class="answers">
+            <a class="add-answer" ng-click="addAnswer(answerInx+1)"><i class="fa fa-plus-circle"></i>Add RSVP Responses</a>
+            <div ng-repeat="answer in answers">
+                <input type="text" class="answer" placeholder="Yes, I will attend." /><a class="remove-answer" ng-click="removeAnswer(answer)"><i class="fa fa-times"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabContainerField attach-wrap">
+        <div class="filter-wrap">
+            <a class="public-link"><img src="images/icons/public.png">Make Public | </a> 
+            <a class="public-link">View Public Link</a>
+            <div class="drop-down">
+                <span>Send to:</span>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Group Members <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">All Group Members</a></li>
+                        <li><a href="#">Member1</a></li>
+                        <li><a href="#">Member2</a></li>
+                        <li><a href="#">Member3</a></li>
+                    </ul>
+                </div>
+            </div>                    
+        </div>
+        <div class="attachments">
+            <span class="attach-title">Attachments:</span>
+            <div class="seperate-line"></div>
+            <ul>
+                <li>
+                    <img src="images/attach1.png">
+                    <div class="attach-info">
+                        <span class="attach_name">sample-image-name.jpeg</span>
+                        <a class="change">change | </a><a class="remove">&nbsp;remove</a>    
+                    </div>                            
+                </li>
+                <li>
+                    <img src="images/attach2.png">
+                    <div class="attach-info">
+                        <span class="attach_name">www.video.com/samplevideolink</span>
+                        <a class="change">change | </a><a class="remove">&nbsp;remove</a>
+                    </div>                            
+                </li>
+            </ul>
+            <p class="comment">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        </div>
+        <div class="add_buttons">
+            <a class="add-photo btn"><img src="images/icons/add-photo.png"><span>Add Photo</span></a>
+            <a class="add-video btn"><img src="images/icons/add-video.png"><span>Add Video</span></a>
+            <a class="add-text btn"><img src="images/icons/add-text.png"><span>Add Text</span></a>
+        </div>
+    </div>
+
+    <div class="tabContainerField">
+        <div ng-show="filter.currGrp1.available" class="left remainingPetition">
+            {{ filter.currGrp1.available }} petitions left in this group
+        </div>
+        <div class="right postSubmitBtn">
+            <input type="submit" value="Post">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>

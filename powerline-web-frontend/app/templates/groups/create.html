@@ -1,4 +1,4 @@
-<section class="margin-h-10 padding-v-10">
+<!-- <section class="margin-h-10 padding-v-10">
     <form name="createGroupForm" novalidate ng-class="formClass" class="margin-v-10" autocomplete="off">
         <fieldset class="margin-v-10">
             <div class="item-floating-label text-field-1" ng-class="{invalid: createGroupForm.username.$invalid && createGroupForm.$filled}">
@@ -17,5 +17,67 @@
             </div>
         </fieldset>
     </form>
+</section> -->
+
+<div class="group-create-steps">
+    <ul>
+        <li class="active">Registration</li>
+        <li>Tier Selection</li>
+        <li>Payment</li>
+    </ul>
+    <div class="progress-bar">
+        <img class="left" src="images/icons/progress-fill.png">
+        <img class="center" src="images/icons/progress-empty.png">
+        <img class="right" src="images/icons/progress-empty.png">
+    </div>
+</div>
+
+<section class="group-creation padding-10">
+    <h1>Let’s start with the basics...</h1>
+    <fieldset>
+        <span class="input-label">Email</span>
+        <input type="email" ng-model="data.email" name="email"/>
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="data.password" name="password"/>
+        <button class="hide-password btn btn-default">hide password</button>
+        <div class="note"><i class="fa fa-info-circle"></i><span>Don't worry - we'll send you a copy of your username and password for your records.</span></div>
+    </fieldset>
+    <fieldset>
+        <span class="input-label">Group ID</span>
+        <input type="text" ng-model="data.groupId" name="groupId" placeholder="@" />
+        <div class="note"><i class="fa fa-info-circle"></i><span>Your group's public page will be listed at http://www.powerli.ne/for/GroupIDHere. You can choose later to hide this from search engines or to limit what the public can see.</span></div>
+        <span class="input-label">Group Type</span>
+        <div class="selectBox">
+            <select>
+                <option>Type</option>
+            </select>    
+        </div>
+        <span class="input-label">Group Name</span>
+        <input type="text" ng-model="data.groupName" name="groupName" placeholder="ex. Powerline" />
+        <span class="input-label">Group Acronym</span>
+        <input type="text" ng-model="data.groupAcro" name="groupAcro" placeholder="ex. PL" />
+    </fieldset>
+    <fieldset>
+        <h4>What does your group focus on?</h4>
+        <span class="interests-txt">We'll use this for anonymous reporting and for suggesting groups to new users with similar interests. Whether you let them join or not is your decision!</span>
+        <div class="sel-interests">
+            <ul>
+                <li ng-repeat="sel_interest in sel_interests">{{sel_interest}}<i class="fa fa-times" ng-click="removeInterest(sel_interest)"></i></li>
+            </ul>
+        </div>
+        <div class="interests">
+            <ul>
+                <li ng-repeat="interest in interests" ng-click="setInterests(interest)">{{interest}}</li>
+            </ul>
+        </div>
+        <span class="input-label">Add your own interests</span>
+        <input type="text" class="own_interest" ng-model="data.own_interests" name="own_interests" placeholder="ex. Systemic Change" />
+        <button class="btn btn-default add-interest">Add</button>
+    </fieldset>
 </section>
-<div class="wrap-center" ng-show="loading"><spinner></spinner></div>
+
+<div class="skip-buttons">
+    <button class="btn btn-default next-btn" ui-sref="groups-create-step2">Next - Choose your Package<i class="fa fa-caret-right"></i></button>
+</div>
+
+<!-- <div class="wrap-center" ng-show="loading"><spinner></spinner></div> -->

@@ -87,8 +87,6 @@
 
             </div>
 
-
-
             <div class="userGroup">
 
                 <div class="titleText" >
@@ -96,6 +94,29 @@
                     <a ng-click="navigate(items.groups)" >
                         ({{filteredGroups.length}})
                     </a>
+                </div>
+                
+                <div class="location_info">
+
+                    <ul>
+                        <!-- <li ng-repeat="grp in filteredGroups = (homeCtrlParams.filter.groups | filter: { group_type: 1 } || { group_type: 2 } || { group_type: 3 })">
+                            <a href="javascript:;" ng-click="navigateTo('group-profile', grp)">
+
+                              <span ng-if="grp.avatar_file_path == 'https://api-staging.powerli.ne/bundles/civixfront/img/default_group.png'">
+                              <ng-letter-avatar data="{{grp.official_title}}" avatarborder="true"></ng-letter-avatar>
+                              </span>
+                              <img
+                              ng-if="grp.avatar_file_path != 'https://api-staging.powerli.ne/bundles/civixfront/img/default_group.png'"
+                              ng-src="{{grp.avatar_file_path}}" alt="{{grp.official_title}}">
+
+                            </a>
+                        </li> -->
+
+                        <li><a ng-click="filterLocation('All')">All</a></li>
+                        <li ng-repeat="grp in filteredGroups = (homeCtrlParams.filter.groups | filter: { group_type: 3 })"><a ng-click="filterLocation(grp)">{{homeCtrlParams.leftBar.currUser.city}}</a></li>
+                        <li ng-repeat="grp in filteredGroups = (homeCtrlParams.filter.groups | filter: { group_type: 2 })"><a ng-click="filterLocation(grp)">{{homeCtrlParams.leftBar.currUser.state}}</a></li>
+                        <li ng-repeat="grp in filteredGroups = (homeCtrlParams.filter.groups | filter: { group_type: 1 })"><a ng-click="filterLocation(grp)">{{homeCtrlParams.leftBar.currUser.country}}</a></li>
+                    </ul>
                 </div>
 
                 <div class="userGroupDetail">
@@ -119,7 +140,7 @@
                             </li>
 
                             <li >
-                                <a href="#/groups/search">
+                                <a ui-sref="groups-create">
                                     <img src="images/plus.png">
                                 </a>
                             </li>

@@ -134,6 +134,16 @@ angular.module('app.services').factory('petitions',function ($q, PetitionsResour
     },
     unsign: function(id, optionId) {
       return $http['delete'](serverConfig.url + '/api/micro-petitions/' + id + '/answers/' + optionId);
+    },
+    create: function(params) {
+      var deferred = $q.defer();
+      $http.post(serverConfig.url + '/api/micro-petitions/', {params: params}).then(function(data){
+        deferred.resolve(data);
+      }, function(){
+        deferred.reject();
+      })
+
+      return deferred.promise;
     }
   };
 

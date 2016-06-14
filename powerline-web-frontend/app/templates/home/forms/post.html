@@ -1,0 +1,14 @@
+<form name="$parent.postForm" novalidate ng-class="$parent.formClass" ng-submit="$parent.createPost();" autocomplete="off">
+    <h5>Post</h5>
+    <textarea ng-model="$parent.post_body" name="post_body" required placeholder="What's on your mind?"></textarea>
+
+    <div class="tabContainerField">
+        <div ng-show="filter.currGrp1.available" class="left remainingPetition">
+            {{ filter.currGrp1.available }} petitions left in this group
+        </div>
+        <div class="right postSubmitBtn">
+            <input type="submit" value="Post">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>

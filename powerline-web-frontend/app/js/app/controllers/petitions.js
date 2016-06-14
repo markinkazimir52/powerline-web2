@@ -154,13 +154,15 @@ function (
   });
 
 }).controller('petition',function ($scope, topBar, petitions, $routeParams, loaded, $cacheFactory, session, $route,
-                                   homeCtrlParams, activity, flurry, layout) {
+                                   homeCtrlParams, activity, flurry, layout, $state) {
   
   var cache = $cacheFactory.get('petitionController');
-  $scope.petition = cache.get($routeParams.id);
-  activity.setEntityRead({id: Number($routeParams.id), type: 'micro-petition'});
+  var petitionId = $state.params.id;
 
-  flurry.log('micro petition', {id: Number($routeParams.id)});
+  $scope.petition = cache.get(petitionId);  
+  activity.setEntityRead({id: Number(petitionId), type: 'micro-petition'});
+
+  flurry.log('micro petition', {id: Number(petitionId)});
 
   if (!$scope.petition) {
     $scope.loading = true;
@@ -170,12 +172,12 @@ function (
     $scope.current = option;
   };
 
-  petitions.load($routeParams.id).then(loaded($scope, function (petition) {
+  petitions.load(petitionId).then(loaded($scope, function (petition) {
     $scope.petition = petition;
     if (petition.answer_id) {
       $scope.answer_message = 'Your response “' + petition.getOptionLabel(petition.answer_id) + '” was sent to “' + petition.group.official_title + '” group';
     }
-    cache.put($routeParams.id, petition);
+    cache.put(petitionId, petition);
     layout.focus($routeParams.focus);
 
     topBar

@@ -55,7 +55,7 @@ angular.module('app.controllers').controller('topBar',function ($scope, mainMenu
       $scope.$broadcast('scroll-content-changed');
     }
   });
-}).controller('mainMenu',function ($scope, mainMenu,$route,$location, $rootScope, $cacheFactory, homeCtrlParams) {
+}).controller('mainMenu',function ($scope, mainMenu,$route,$location, $rootScope, $cacheFactory, homeCtrlParams, topBar, groups) {
   $scope.items = [];
   $scope.$watch(function () {
     return mainMenu.items;
@@ -115,6 +115,20 @@ angular.module('app.controllers').controller('topBar',function ($scope, mainMenu
   });
 
   $scope.homeCtrlParams = homeCtrlParams;
+
+  $scope.filterLocation = function(group) {
+    if(group != 'All'){
+      homeCtrlParams.filter.selectedLocationGroup = group;
+      
+      if(!group.acronym)
+        topBar.set('title', 'Post > '+ group.official_title);
+      else
+        topBar.set('title', 'Post > '+ group.acronym);
+    }
+    else{
+      homeCtrlParams.filter.selectedLocationGroup = null;
+    }
+  }
 
 }).controller('notifications', function ($scope, socialActivityTabManager, $location, groupsInvites, invites, announcements, $route, homeCtrlParams) {
 
